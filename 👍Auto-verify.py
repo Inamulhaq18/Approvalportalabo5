@@ -98,6 +98,10 @@ if product_imagesR != "NA" and product_imagesR != "" :
 
 else:
     st.write("No images uploaded")
+    if st.button("Skip"):
+            sql_select_query = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
+            curr.execute(sql_select_query, (status,product_id,))
+            conn.commit()
 
 if iterrow["Product_image_P_url"].values[0]=="":
     #api
