@@ -51,16 +51,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
         #numeber of products unapproved
-        productname_en_ = st.text_input('Product Name English', productname_en)
-
-with col2:
-
-        #name_ar
-        price=(((iterrow["Product_price"]).values)[0])
-        price_ = st.number_input('Price', value=price)
-        
-
-with col3:
+    productname_en_ = st.text_input('Product Name English', productname_en)
     cat=(((iterrow["Product_Category"]).values)[0])
     if cat in list(categories1.keys()):
         catslist=list(categories1.keys())
@@ -73,7 +64,12 @@ with col3:
         'Select a category',
         categories1.keys())
 
+with col2:
 
+        #name_ar
+    price=(((iterrow["Product_price"]).values)[0])
+    price_ = st.number_input('Price', value=price)
+        
     #Select Sub category||||||||||||||||||||||||||||||||||||||||||||||||||||||||| Need to configure this part
     if cat in categories1.keys():
         subcat=(((iterrow["Product_subcategory"]).values)[0])
