@@ -127,17 +127,28 @@ lst=list(range(1,len(product_imagesR)+1))
 lst=lst+listofrembg
 
 #Upload new photos 
-
+def update_raw_image(links,pid):
+    sql_select_query = """UPDATE master_product_table SET "Product_image_R_url" = %s, WHERE "Product_id" = %s
+                        """
+    
+    curr.execute(sql_select_query, (links,pid,))
+    conn.commit()
+    
 uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
 images=[]
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    name=save_uploadedfile(uploaded_file)
-    #st.write(name)
-    #upload R to s3
+if len(uploaded_files)>0:
+    st.button("Upload"):
+        for uploaded_file in uploaded_files:
+            bytes_data = uploaded_file.read()
+            name=save_uploadedfile(uploaded_file)
+            #st.write(name)
+            #upload R to s3
 
-    s3.Bucket('abo5').upload_file(Filename=name, Key=name)
-    urllist.append(url+name)
+            s3.Bucket('abo5').upload_file(Filename=name, Key=name)
+            urllist.append(url+name)
+         links = ", ".join(urllist)
+         links = old+", "+links
+         update_raw_images(links,product_id)          
 
 
 
