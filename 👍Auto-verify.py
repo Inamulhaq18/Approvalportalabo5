@@ -138,7 +138,7 @@ uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], ac
 images=[]
 if len(uploaded_files)>0:
     st.button("Upload"):
-        for uploaded_file in uploaded_files:
+         for uploaded_file in uploaded_files:
             bytes_data = uploaded_file.read()
             name=save_uploadedfile(uploaded_file)
             #st.write(name)
