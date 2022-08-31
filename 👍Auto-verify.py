@@ -90,6 +90,7 @@ with col2:
 ##loading images and displaying them
 productdes_en_ = st.text_area('Product Describtion English', productdes_en)
 product_imagesR=(((iterrow["Product_image_R_url"]).values)[0])
+product_rimage=product_imagesR
 if product_imagesR != "NA" and product_imagesR != "" :
     product_imagesR=product_imagesR.replace(" ","").split(",")
     rawimage=list(range(1,len(product_imagesR)+1))
@@ -148,9 +149,7 @@ if len(uploaded_files)>0:
             s3.Bucket('abo5').upload_file(Filename=name, Key=name)
             urllist.append(url+name)
          links = ", ".join(urllist)
-         st.write(type(links))
-         st.write(type(product_imagesR))
-         links = product_imagesR+", "+links
+         links = product_rimage+", "+links
          update_raw_images(links,product_id)          
 
 
