@@ -52,7 +52,6 @@ col1, col2, col3 = st.columns(3)
 with col1:
         #numeber of products unapproved
         productname_ar_ = st.text_input('Product Name Arabic', productname_ar)
-        productdes_en_ = st.text_area('Product Describtion English', productdes_en)
         tags=st.text_area('Tags', tags)
 
 
@@ -97,6 +96,7 @@ with col3:
 
 
 ##loading images and displaying them
+productdes_en_ = st.text_area('Product Describtion English', productdes_en)
 product_imagesR=(((iterrow["Product_image_R_url"]).values)[0])
 if product_imagesR != "NA" and product_imagesR != "" :
     product_imagesR=product_imagesR.replace(" ","").split(",")
