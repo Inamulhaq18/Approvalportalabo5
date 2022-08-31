@@ -51,11 +51,11 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
         #numeber of products unapproved
+        productname_en_ = st.text_input('Product Name English', productname_en)
 
 with col2:
 
         #name_ar
-        productname_en_ = st.text_input('Product Name English', productname_en)        #desc_ar    
         price=(((iterrow["Product_price"]).values)[0])
         price_ = st.number_input('Price', value=price)
         
