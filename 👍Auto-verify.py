@@ -100,14 +100,14 @@ else:
     st.write("No images uploaded")
     if st.button("Skip"):
             sql_select_query = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
-            status=8#omit
+            status=int(8)
             curr.execute(sql_select_query, (status,product_id))
             conn.commit()
 
 if iterrow["Product_image_P_url"].values[0]=="":
     #api
     ################################################################FIX THIS $##########################################
-    imageprocessapi(str("https://abo5.s3.eu-central-1.amazonaws.com/2022-06-20122612494683.jpeg, https://abo5.s3.eu-central-1.amazonaws.com/2022-06-20122614533780.jpeg, https://abo5.s3.eu-central-1.amazonaws.com/2022-06-20122615195637.jpeg, https://abo5.s3.eu-central-1.amazonaws.com/2022-06-20122615843712.jpeg"))
+    imageprocessapi(str(product_rimage))
     st.success("Wait for 15 sec and press R")
 else:
     
