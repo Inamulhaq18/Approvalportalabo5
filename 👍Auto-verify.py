@@ -148,7 +148,7 @@ if len(uploaded_files)>0:
             s3.Bucket('abo5').upload_file(Filename=name, Key=name)
             urllist.append(url+name)
          links = ", ".join(urllist)
-         st.write(type(links)
+         st.write(type(links))
          st.write(type(product_imagesR))
          links = product_imagesR+", "+links
          update_raw_images(links,product_id)          
