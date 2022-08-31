@@ -129,8 +129,7 @@ lst=lst+listofrembg
 
 #Upload new photos 
 def update_raw_image(links,pid):
-    sql_select_query = """UPDATE master_product_table SET "Product_image_R_url" = %s, WHERE "Product_id" = %s
-                        """
+    sql_select_query = """UPDATE master_product_table SET "Product_image_R_url" = %s, WHERE "Product_id" = %s"""
     
     curr.execute(sql_select_query, (links,pid,))
     conn.commit()
