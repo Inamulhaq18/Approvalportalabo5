@@ -9,6 +9,7 @@ import requests
 from io import BytesIO
 import json
 from categories import *
+from abo5s3 import *
 
 #initialize the database connection
 conn=psycopg2.connect("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153df6a42054b71e9be00dda420f40bbbf791b2@ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/dd8a5bspvhrk8c") 
@@ -124,6 +125,22 @@ Varient = (iterrow["variety"].values[0])
 varient=Varient
 lst=list(range(1,len(product_imagesR)+1))
 lst=lst+listofrembg
+
+#Upload new photos 
+
+uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
+images=[]
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    name=save_uploadedfile(uploaded_file)
+    #st.write(name)
+    #upload R to s3
+
+    s3.Bucket('abo5').upload_file(Filename=name, Key=name)
+    urllist.append(url+name)
+
+
+
 if varient!= None:
     with st.expander("Varient", expanded=True):
         if len (product_imagesR)>0:
