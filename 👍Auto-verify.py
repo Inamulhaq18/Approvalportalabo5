@@ -100,6 +100,7 @@ else:
     st.write("No images uploaded")
     if st.button("Skip"):
             sql_select_query = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
+            status=8#omit
             curr.execute(sql_select_query, (status,product_id))
             conn.commit()
 
