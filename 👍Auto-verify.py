@@ -150,7 +150,7 @@ if len(uploaded_files)>0:
             urllist.append(url+name)
          links = ", ".join(urllist)
          links = product_rimage+", "+links
-         update_raw_images(links,product_id)          
+         update_raw_image(links,product_id)          
 
 
 
