@@ -14,7 +14,7 @@ from abo5s3 import *
 #initialize the database connection
 conn=psycopg2.connect("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153df6a42054b71e9be00dda420f40bbbf791b2@ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/dd8a5bspvhrk8c") 
 curr=conn.cursor()
-
+url="https://abo5.s3.eu-central-1.amazonaws.com/"
 def imageprocessapi(links):
     session = requests.Session()
     session.trust_env = False
