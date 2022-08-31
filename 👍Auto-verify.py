@@ -422,8 +422,6 @@ else:
 
 
 if st.button("Update"):
-
-    st.write(productname_ar_)
     
     print("Updating")
     live_timestamp=str(datetime.datetime.now())
