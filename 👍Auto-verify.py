@@ -137,7 +137,7 @@ def update_raw_image(links,pid):
 uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
 images=[]
 if len(uploaded_files)>0:
-    st.button("Upload"):
+   st.button("Upload"):
          for uploaded_file in uploaded_files:
             bytes_data = uploaded_file.read()
             name=save_uploadedfile(uploaded_file)
