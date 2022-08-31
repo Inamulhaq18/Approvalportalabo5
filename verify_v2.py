@@ -133,7 +133,7 @@ price_=str(price_)
 Varient = (iterrow["variety"].values[0])
 
 with st.expander("Varient", expanded=True):
-    if len (uploaded_files)>0:
+    if len(uploaded_files)>0:
 
         typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v2")
         varient={"type":typev2}
