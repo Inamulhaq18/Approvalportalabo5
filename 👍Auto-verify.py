@@ -88,7 +88,7 @@ with col2:
 
 
 ##loading images and displaying them
-productdes_en_ = st.text_area('Product Describtion English', productdes_en)
+productdes_en_ = st.text_area('Product Describtion English', productdes_en+tags)
 product_imagesR=(((iterrow["Product_image_R_url"]).values)[0])
 product_rimage=product_imagesR
 if product_imagesR != "NA" and product_imagesR != "" :
