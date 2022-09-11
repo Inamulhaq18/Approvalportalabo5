@@ -1,7 +1,6 @@
 
 
 import psycopg2
-from st_aggrid import AgGrid
 import pandas as pd
 import streamlit as st
 import datetime 
