@@ -27,6 +27,7 @@ dat = pd.read_sql_query(sql,conn)
 pfa=dat
 pfa=pfa[pfa["Product_id"]>500]
 pfa=pfa[pfa["Product_approval_status"]==0]
+pfa=pfa[pfa["shopify_status"]==0]
 pfa=pfa.sort_values(by="Product_id")
 
 #Number of items 
