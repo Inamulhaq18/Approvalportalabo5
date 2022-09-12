@@ -11,7 +11,7 @@ import json
 from categories import *
 from abo5s3 import *
 
-def skip():
+def skip(product_id):
         sql_select_queryskip = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
         status=str("8")
         curr.execute(sql_select_queryskip, (status,str(product_id),))
@@ -29,8 +29,7 @@ def imageprocessapi(links):
     url=url+links
     response = session.get(url)
     print(response.content)
-if st.button("Skip if you see an error"):
-    skip()
+
 #loading the data
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
@@ -50,7 +49,8 @@ productdes_ar=(((iterrow["Product_describtion_ar"]).values)[0])
 
 variety=(((iterrow["variety"].values[0])))
 tags=(((iterrow["Tags"]).values)[0])
-
+if st.button("Skip if you see an error"):
+    skip(product_id)
 
 
 col1, col2 = st.columns(2)
