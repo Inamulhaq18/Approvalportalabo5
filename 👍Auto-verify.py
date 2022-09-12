@@ -129,6 +129,8 @@ if len(iterrow["Product_image_P_url"].values[0])!=0:
         for image in imagesrembg:
             removed.append(image.strip())
         st.image(removed,width=100,caption=listofrembg)
+        lst=list(range(1,len(product_imagesR)+1))
+        lst=lst+listofrembg
 
 #Update the data
 product_id=str(product_id)
@@ -138,8 +140,7 @@ price_=str(price_)
 Varient = (iterrow["variety"].values[0])
 
 varient=Varient
-lst=list(range(1,len(product_imagesR)+1))
-lst=lst+listofrembg
+
 
 #Upload new photos 
 def update_raw_image(links,pid):
