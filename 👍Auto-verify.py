@@ -10,14 +10,14 @@ from io import BytesIO
 import json
 from categories import *
 from abo5s3 import *
+
 def skip():
         sql_select_queryskip = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
         status=str("8")
         curr.execute(sql_select_queryskip, (status,str(product_id),))
         conn.commit()
 #initialize the database connection
-if st.button("Skip if you see an error"):
-    skip()
+
 conn=psycopg2.connect("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153df6a42054b71e9be00dda420f40bbbf791b2@ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/dd8a5bspvhrk8c") 
 curr=conn.cursor()
 url="https://abo5.s3.eu-central-1.amazonaws.com/"
@@ -29,7 +29,8 @@ def imageprocessapi(links):
     url=url+links
     response = session.get(url)
     print(response.content)
-
+if st.button("Skip if you see an error"):
+    skip()
 #loading the data
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
