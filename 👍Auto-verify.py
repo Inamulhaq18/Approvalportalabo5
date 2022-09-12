@@ -97,7 +97,7 @@ if product_imagesR != "NA" and product_imagesR != "" :
     st.image(product_imagesR,width=100,caption=list(range(1,len(product_imagesR)+1)))
 
 else:
-    st.error("No images uploaded")
+    st.error("No images uploaded, Please skip")
     if st.button("Skip"):
             sql_select_queryskip = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
             status=str("8")
