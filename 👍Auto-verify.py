@@ -275,7 +275,7 @@ if varient!= None:
                     img_yellow_list=[]
                     if "yellow" in Varient["data"]:
                         img_yellow_list=Varient["yellow_img"]
-                    yellow_image=st.multiselect("Select Images for yellow", lst,key="v2q",default=img_yellow_list)
+                    yellow_image=st.multiselect("Select Images for yellow", lst,key="v45642q",default=img_yellow_list)
                     varient["yellow_img"]=yellow_image       
 
                 if "black" in datav2:
