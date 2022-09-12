@@ -125,10 +125,11 @@ listofrembg=[]
 for i in range(1,len(imagesrembg)+1):
     listofrembg.append("R"+str(i))
 
-removed=[]
-for image in imagesrembg:
-    removed.append(image.strip())
-st.image(removed,width=100,caption=listofrembg)
+if len(iterrow["Product_image_P_url"].values[0])!=0:
+        removed=[]
+        for image in imagesrembg:
+            removed.append(image.strip())
+        st.image(removed,width=100,caption=listofrembg)
 
 #Update the data
 product_id=str(product_id)
