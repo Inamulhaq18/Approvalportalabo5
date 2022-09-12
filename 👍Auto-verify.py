@@ -119,7 +119,10 @@ for i in range(1,len(imagesrembg)+1):
     listofrembg.append("R"+str(i))
 st.write(imagesrembg)
 st.write(listofrembg)
-st.image(imagesrembg,width=100,caption=listofrembg)
+removed=[]
+for image in imagesrembg:
+    removed.append(image.strip())
+st.image(removed,width=100,caption=listofrembg)
 
 #Update the data
 product_id=str(product_id)
