@@ -29,7 +29,7 @@ sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
 pfa=dat.copy()
 st.title("Product Approval Portal - Auto 👍")
-pfa=pfa[pfa["Product_id"]==675]
+pfa=pfa[pfa["Product_id"]>500]
 pfa=pfa[pfa["Product_approval_status"]==0]
 pfa=pfa.sort_values(by="Product_id")
 st.write(pfa)
