@@ -265,81 +265,81 @@ if varient!= None:
                     img_red_list=[]
                     if "red" in Varient["data"]:
                         img_red_list=Varient["red_img"]
-                    red_image=st.multiselect("Select Images for red", lst,key="v2q",default=img_red_list)
+                    red_image=st.multiselect("Select Images for red", lst,key="v2qas",default=img_red_list)
                     varient["red_img"]=red_image
 
                 if "blue" in datav2:
                     img_blue_list=[]
                     if "blue" in Varient["data"]:
                         img_blue_list=Varient["blue_img"]
-                    blue_image=st.multiselect("Select Images for blue", lst,key="v2q",default=img_blue_list)
+                    blue_image=st.multiselect("Select Images for blue", lst,key="v2qasas",default=img_blue_list)
                     varient["blue_img"]=blue_image
 
                 if "green" in datav2:
                     img_green_list=[]
                     if "green" in Varient["data"]:
                         img_green_list=Varient["green_img"]
-                    green_image=st.multiselect("Select Images for green", lst,key="v2q",default=img_green_list)  
+                    green_image=st.multiselect("Select Images for green", lst,key="vasa2q",default=img_green_list)  
                     varient["green_img"]=green_image  
 
                 if "yellow" in datav2:
                     img_yellow_list=[]
                     if "yellow" in Varient["data"]:
                         img_yellow_list=Varient["yellow_img"]
-                    yellow_image=st.multiselect("Select Images for yellow", lst,key="v45642q",default=img_yellow_list)
+                    yellow_image=st.multiselect("Select Images for yellow", lst,key="v4as5642q",default=img_yellow_list)
                     varient["yellow_img"]=yellow_image       
 
                 if "black" in datav2:
                     img_black_list=[]
                     if "black" in Varient["data"]:
                         img_black_list=Varient["black_img"]                
-                    black_image=st.multiselect("Select Images for black", lst,key="v2q",default=img_black_list)      
+                    black_image=st.multiselect("Select Images for black", lst,key="v2assaq",default=img_black_list)      
                     varient["black_img"]=black_image
                 if "white" in datav2:
                     img_white_list=[]
                     if "white" in Varient["data"]:
                         img_white_list=Varient["white_img"]               
-                    white_image=st.multiselect("Select Images for white", lst,key="v2q",default=img_white_list)     
+                    white_image=st.multiselect("Select Images for white", lst,key="vdasdas2q",default=img_white_list)     
                     varient["white_img"]=white_image
                 if "transparent" in datav2:
                     img_transparent_list=[]
                     if "transparent" in Varient["data"]:
                         img_transparent_list=Varient["transparent_img"] 
-                    transparent_image=st.multiselect("Select Images for transparent", lst,key="v2q",default=img_transparent_list)     
+                    transparent_image=st.multiselect("Select Images for transparent", lst,key="v2asdasq",default=img_transparent_list)     
                     varient["transparent_img"]=transparent_image
                 if "Translucent" in datav2:
                     img_translucent_list=[]
                     if "Translucent" in Varient["data"]:
                         img_translucent_list=Varient["Translucent_img"] 
-                    translucent_image=st.multiselect("Select Images for Translucent", lst,key="v2q",default=img_translucent_list)  
+                    translucent_image=st.multiselect("Select Images for Translucent", lst,key="v2dasdasdq",default=img_translucent_list)  
                     varient["translucent_img"]=translucent_image
                 if "Multicolor" in datav2:
                     img_Multicolor_list=[]
                     if "Multicolor" in Varient["data"]:
                         img_Multicolor_list=Varient["multicolor_img"] 
-                    multicolor_image=st.multiselect("Select Images for Multicolor", lst,key="v2q",default=img_Multicolor_list)    
+                    multicolor_image=st.multiselect("Select Images for Multicolor", lst,key="v2fasfasq",default=img_Multicolor_list)    
                     varient["multicolor_img"]=multicolor_image
                 
                 if "others1" in datav2:
                     other1_color_name=st.text_input("Enter name for others1 : ")
-                    other1_color_image=st.multiselect("Select Images for others1", lst,key="v2q") 
+                    other1_color_image=st.multiselect("Select Images for others1", lst,key="v2gwrdsfxzcq") 
                     otherc1={"otherc1_img":other1_color_image,"otherc1_name":other1_color_name}
                     varient["otherc1"]=otherc1
                 
                 if "others2" in datav2:
                     other2_color_name=st.text_input("Enter name for others2 : ")
-                    other2_color_image=st.multiselect("Select Images for others2", lst,key="v2q") 
+                    other2_color_image=st.multiselect("Select Images for others2", lst,key="vgasfdvc2q") 
                     otherc2={"otherc2_img":other2_color_image,"otherc2_name":other2_color_name}
                     varient["otherc2"]=otherc1
 
                 if "others3" in datav2:
                     other3_color_name=st.text_input("Enter name for others3 : ")
-                    other3_color_image=st.multiselect("Select Images for others3", lst,key="v2q") 
+                    other3_color_image=st.multiselect("Select Images for others3", lst,key="v2sdfsdq") 
                     otherc3={"otherc3_img":other3_color_image,"otherc3_name":other3_color_name}
                     varient["otherc3"]=otherc3
                 if "others4" in datav2:
                     other4_color_name=st.text_input("Enter name for others4 : ")
-                    other4_color_image=st.multiselect("Select Images size others4", lst,key="v2q") 
+                    other4_color_image=st.multiselect("Select Images size others4", lst,key="v2sdfsdfq") 
                     otherc4={"otherc4_img":other4_color_image,"otherc4_name":other4_color_name}
                     varient["otherc4"]=otherc4
             lstdesign=[]
@@ -373,7 +373,7 @@ if varient!= None:
                             d1imges=variety["otherd1"]["otherd1_img"]
                             st.write(d1imges)
                     other1_design_name=st.text_input("Enter name for Design1 : ",value=text)
-                    other1_design_image=st.multiselect("Select Images for Design1",lst,key="v2q",default=d1imges)
+                    other1_design_image=st.multiselect("Select Images for Design1",lst,key="vsdfsdf2q",default=d1imges)
                     otherd1={"otherd1_img":other1_design_image,"otherd1_name":other1_design_name}
                     varient["otherd1"]=otherd1
                 
@@ -387,7 +387,7 @@ if varient!= None:
                     if  variety['type']=="design":
                         text=variety["otherd2"]["otherd2_name"]
                     other2_design_name=st.text_input("Enter name for Design2 : ",value=text2)
-                    other2_design_image=st.multiselect("Select Images for Design2", lst,key="v2q",default=d2imges)
+                    other2_design_image=st.multiselect("Select Images for Design2", lst,key="v2sdfcadzfq",default=d2imges)
                     otherd2={"otherd2_img":other2_design_image,"otherd2_name":other2_design_name}
                     varient["otherd2"]=otherd2
 
@@ -412,7 +412,7 @@ if varient!= None:
                             text4=variety["otherd4"]["otherd4_name"]
                             d4imges=variety["otherd4"]["otherd4_img"]
                     other4_design_name=st.text_input("Enter name for Design4 : ",value=text4)
-                    other4_design_image=st.multiselect("Select Images for Design4", lst,key="v2q",default=d4imges)
+                    other4_design_image=st.multiselect("Select Images for Design4", lst,key="vwrdvsxc2q",default=d4imges)
                     otherd4={"otherd4_img":other4_design_image,"otherd4_name":other4_design_name}
                     varient["otherd4"]=otherd4
                 
@@ -424,7 +424,7 @@ if varient!= None:
                             text5=variety["otherd5"]["otherd5_name"]
                             d5imges=variety["otherd5"]["otherd5_img"]
                     other5_design_name=st.text_input("Enter name for Design5 : ",value=text5)               
-                    other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2q",default=d5imges)
+                    other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2wrdsvgzxcq",default=d5imges)
                     otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
                     varient["otherd5"]=otherd5
 
