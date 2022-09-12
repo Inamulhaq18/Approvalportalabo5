@@ -120,12 +120,11 @@ else:
     
     imagesrembg=(((iterrow["Product_image_P_url"]).values)[0]).split(',')
 
-
-listofrembg=[]
-for i in range(1,len(imagesrembg)+1):
-    listofrembg.append("R"+str(i))
-
 if len(iterrow["Product_image_P_url"].values[0])!=0:
+        listofrembg=[]
+        for i in range(1,len(imagesrembg)+1):
+            listofrembg.append("R"+str(i))
+
         removed=[]
         for image in imagesrembg:
             removed.append(image.strip())
