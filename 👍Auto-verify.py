@@ -117,15 +117,15 @@ else:
 listofrembg=[]
 for i in range(1,len(imagesrembg)+1):
     listofrembg.append("R"+str(i))
+st.write(imagesrembg)
+st.write(listofrembg)
 st.image(imagesrembg,width=100,caption=listofrembg)
 
 #Update the data
 product_id=str(product_id)
 price_=str(price_)
 
-#BG removed
-# re 
-#      st.image(remove(img),width=400,caption="Product Image")
+
 Varient = (iterrow["variety"].values[0])
 
 varient=Varient
