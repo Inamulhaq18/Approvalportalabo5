@@ -161,82 +161,82 @@ if varient!= None:
     with st.expander("Varient", expanded=True):
         if len (product_imagesR)>0:
             options=["Select","size", "color", "design"]
-            typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v2",index=options.index(variety["type"]))
+            typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v02",index=options.index(variety["type"]))
             varient={"type":typev2}
             
             if typev2 == "size":
                 selectedlistsize=[]
                 if Varient["data"]:
                     selectedlistsize=Varient["data"]
-                datav2=st.multiselect("Select size", ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL","others1","others2","others3","others4"],key="v2",default=selectedlistsize)
+                datav2=st.multiselect("Select size", ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL","others1","others2","others3","others4"],key="v002",default=selectedlistsize)
                 #st.write(datav2[0])
     #           varient["data"]=datav2
                 if "S" in datav2:
                     defaultfors=[]
                     if Varient["S_img"]:
                         defaultfors=Varient["S_img"]
-                    s_image=st.multiselect("Select Images for S", lst,key="v2q",default=defaultfors)
+                    s_image=st.multiselect("Select Images for S", lst,key="v02q",default=defaultfors)
                     varient["S_img"]=s_image
 
                 if "M" in datav2:
                     defaultforM=[]
                     if Varient["M_img"]:
                         defaultforM=Varient["M_img"]
-                    m_image=st.multiselect("Select Images for M", lst,key="v2q",default=defaultforM)
+                    m_image=st.multiselect("Select Images for M", lst,key="v20q3",default=defaultforM)
                     varient["M_img"]=m_image
 
                 if "L" in datav2:
                     defaultforL=[]
                     if Varient["L_img"]:
                         defaultforL=Varient["L_img"]
-                    l_image=st.multiselect("Select Images for L", lst,key="v2q",default=defaultforL)    
+                    l_image=st.multiselect("Select Images for L", lst,key="v2q20",default=defaultforL)    
                     varient["L_img"]=l_image
                 if "XL" in datav2:
                     defaultforXL=[]
                     if Varient["XL_img"]:
                         defaultforXL=Varient["XL_img"]
-                    xl_image=st.multiselect("Select Images for XL", lst,key="v2q",default=defaultforXL)          
+                    xl_image=st.multiselect("Select Images for XL", lst,key="v2q1",default=defaultforXL)          
                     varient["XL_img"]=xl_image
                 if "XXL" in datav2:
                     defaultforXXL=[]
                     if Varient["XXL_img"]:
                         defaultforXXL=Varient["XXL_img"]
-                    xxl_image=st.multiselect("Select Images for XXL", lst,key="v2q",default=defaultforXXL)      
+                    xxl_image=st.multiselect("Select Images for XXL", lst,key="v2q4",default=defaultforXXL)      
                     varient["XXL_img"]=xxl_image
 
                 if "XXXL" in datav2:
                     defaultforXXXL=[]
                     if Varient["XXXL_img"]:
                         defaultforXXXL=Varient["XXXL_img"]
-                    xxxl_image=st.multiselect("Select Images for XXXL", lst,key="v2q",default=defaultforXXXL)     
+                    xxxl_image=st.multiselect("Select Images for XXXL", lst,key="v2q5",default=defaultforXXXL)     
                     varient["XXXL_img"]=xxxl_image
                 if "XXXXL" in datav2:
                     defaultforXXXXL=[]
                     if Varient["XXXXL_img"]:
                         defaultforXXXXL=Varient["XXXXL_img"]
-                    xxxxl_image=st.multiselect("Select Images for XXXXL", lst,key="v2q",default=defaultforXXXXL)     
+                    xxxxl_image=st.multiselect("Select Images for XXXXL", lst,key="v2q6",default=defaultforXXXXL)     
                     varient["XXXXL_img"]=xxxxl_image
                 if "others1" in datav2:
                     others1_size_name=st.text_input("Enter name for others1 : ")
-                    others1_size_image=st.multiselect("Select Images for others1", lst,key="v2q") 
+                    others1_size_image=st.multiselect("Select Images for others1", lst,key="v2q7") 
                     others1={"others1_img":others1_size_image,"others1_name":others1_size_name}
                     varient["others1"]=others1
             
                 if "others2" in datav2:
                     others2_size_name=st.text_input("Enter name for others2 : ")
-                    others2_size_image=st.multiselect("Select Images for others2", lst,key="v2q")
+                    others2_size_image=st.multiselect("Select Images for others2", lst,key="v2q8")
                     others2={"others2_img":others2_size_image,"others2_name":others2_size_name}
                     varient["others2"]=others2
 
                 if "others3" in datav2:
                     others3_size_name=st.text_input("Enter name for others3 : ")
-                    others3_size_image=st.multiselect("Select Images for others3", lst,key="v2q") 
+                    others3_size_image=st.multiselect("Select Images for others3", lst,key="v2q9") 
                     others3={"others3_img":others3_size_image,"others3_name":others3_size_name}
                     varient["others3"]=others3
 
                 if "others4" in datav2:
                     others4_size_name=st.text_input("Enter name for others4 : ")
-                    others4_size_image=st.multiselect("Select Images size others4", lst,key="v2q")
+                    others4_size_image=st.multiselect("Select Images size others4", lst,key="v2q10")
                     others4={"others4_img":others4_size_image,"others4_name":others4_size_name}
                     varient["others4"]=others4
                     
