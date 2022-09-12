@@ -32,7 +32,7 @@ st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]==675]
 pfa=pfa[pfa["Product_approval_status"]==0]
 pfa=pfa.sort_values(by="Product_id")
-st.write(iterrow)
+st.write(pfa)
 iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
 st.write(iterrow)
 product_id=(((iterrow["Product_id"]).values)[0])
