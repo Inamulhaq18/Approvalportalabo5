@@ -399,7 +399,7 @@ if varient!= None:
                             d3imges=variety["otherd3"]["otherd3_img"]
 
                     other3_design_name=st.text_input("Enter name for Design3 : ",value=text3)
-                    other3_design_image=st.multiselect("Select Images for Design3", lst,key="v2q",default=d3imges)
+                    other3_design_image=st.multiselect("Select Images for Design3", lst,key="v123122q",default=d3imges)
                     otherd3={"otherd3_img":other3_design_image,"otherd3_name":other3_design_name}
                     varient["otherd3"]=otherd3
                 
