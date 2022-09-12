@@ -58,7 +58,7 @@ with col3:
     cat=(((iterrow["Product_Category"]).values)[0])
     catslist=['Occasions & Holidays', 'Household Gears', 'Antiques & Gifts','Cleaning & Plastics',
         'Personal Care','Stationery & School Supplies','Accessories','MISCELLANEOUS','CLOTHES',
-        'Food','NA','Kitchen',"CatFood","Not Selected"]
+        'Food','NA','Kitchen',"CatFood","Not Selected",'ANTIQUES & GIFTS']
     catindex=catslist.index(cat)
     category_ = st.selectbox(
     'Select a category',
