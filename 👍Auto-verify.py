@@ -32,7 +32,6 @@ st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>500]
 pfa=pfa[pfa["Product_approval_status"]==0]
 pfa=pfa.sort_values(by="Product_id")
-st.write(pfa)
 iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
 st.write(iterrow)
 product_id=(((iterrow["Product_id"]).values)[0])
@@ -117,8 +116,7 @@ else:
 listofrembg=[]
 for i in range(1,len(imagesrembg)+1):
     listofrembg.append("R"+str(i))
-st.write(imagesrembg)
-st.write(listofrembg)
+
 removed=[]
 for image in imagesrembg:
     removed.append(image.strip())
