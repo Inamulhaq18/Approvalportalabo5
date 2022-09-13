@@ -166,7 +166,7 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)          
 
-
+imgsource=st.multiselect(links)
 
 if varient!= None:
     with st.expander("Varient", expanded=True):
@@ -427,6 +427,7 @@ if varient!= None:
                     other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2wrdsvgzxcq",default=d5imges)
                     otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
                     varient["otherd5"]=otherd5
+                    varient["imgsource"]=imgsource
 
 varient=json.dumps(varient)
 st.write(varient)
