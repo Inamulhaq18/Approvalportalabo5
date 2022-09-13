@@ -177,7 +177,7 @@ if varient!= None:
             
             if typev2 == "size":
                 selectedlistsize=[]
-                if Varient["data"]:
+                if Varient.has_key("data"):
                     selectedlistsize=Varient["data"]
                 datav2=st.multiselect("Select size", ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL","others1","others2","others3","others4"],key="v002",default=selectedlistsize)
                 #st.write(datav2[0])
@@ -255,7 +255,7 @@ if varient!= None:
 
             if typev2 == "color":
                 selectedlistcolor=[]
-                if Varient["data"] and Varient["type"]=="color":
+                if Varient.has_key("data") and Varient["type"]=="color":
                     selectedlistcolor=Varient["data"]
                 datav2=st.multiselect("Select color", ["red", "blue", "green", "yellow", "black", "white","transparent",
                                     "Translucent","Multicolor", "others1","others2","others3","others4"],key="v2",default=selectedlistcolor)
