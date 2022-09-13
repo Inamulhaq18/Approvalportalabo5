@@ -138,7 +138,7 @@ price_=str(price_)
 
 
 Varient = (iterrow["variety"].values[0])
-
+st.write(Varient)
 
 
 #Upload new photos 
@@ -169,6 +169,7 @@ if len(uploaded_files)>0:
 #################################################################################3333        
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 Varient["imgsource"]=imgsource
+st.write(Varient)
 varient=Varient
 if varient!= None:
     with st.expander("Varient", expanded=True):
