@@ -139,8 +139,7 @@ price_=str(price_)
 
 Varient = (iterrow["variety"].values[0])
 
-varient=Varient
-
+varient["imgsource"]=lst
 
 #Upload new photos 
 def update_raw_image(links,pid):
