@@ -167,9 +167,10 @@ if len(uploaded_files)>0:
          update_raw_image(links,product_id)          
 
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
-
+varient["imgsource"]=imgsource
 if varient!= None:
     with st.expander("Varient", expanded=True):
+        
         if len (product_imagesR)>0:
             options=["Select","size", "color", "design"]
             typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v02",index=options.index(variety["type"]))
@@ -427,7 +428,7 @@ if varient!= None:
                     other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2wrdsvgzxcq",default=d5imges)
                     otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
                     varient["otherd5"]=otherd5
-                    varient["imgsource"]=imgsource
+                
 
 varient=json.dumps(varient)
 st.write(varient)
