@@ -165,7 +165,9 @@ if len(uploaded_files)>0:
          update_raw_image(links,product_id)          
 
 
-#################################################################################3333        
+#################################################################################3333  
+st.write(varient)    
+st.write(("____________________________________________________")) 
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 varient["imgsource"]=imgsource
 st.write(varient)
