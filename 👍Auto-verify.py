@@ -169,6 +169,7 @@ if len(uploaded_files)>0:
 #################################################################################3333        
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 Varient["imgsource"]=imgsource
+varient=Varient
 if varient!= None:
     with st.expander("Varient", expanded=True):
         
