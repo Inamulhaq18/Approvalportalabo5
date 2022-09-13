@@ -139,7 +139,7 @@ price_=str(price_)
 
 Varient = (iterrow["variety"].values[0])
 
-varient["imgsource"]=lst
+
 
 #Upload new photos 
 def update_raw_image(links,pid):
@@ -165,6 +165,8 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)          
 
+
+#################################################################################3333        
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 varient["imgsource"]=imgsource
 if varient!= None:
