@@ -137,8 +137,7 @@ product_id=str(product_id)
 price_=str(price_)
 
 
-Varient = (iterrow["variety"].values[0])
-st.write(Varient)
+
 
 
 #Upload new photos 
@@ -172,7 +171,7 @@ imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 varient["imgsource"]=imgsource
 st.write(varient)
 if varient!= None:
-    with st.expander("Varient", expanded=True):
+    with st.expander("varient", expanded=True):
         
         if len (product_imagesR)>0:
             options=["Select","size", "color", "design"]
@@ -181,54 +180,54 @@ if varient!= None:
             
             if typev2 == "size":
                 selectedlistsize=[]
-                if Varient["data"]:
-                    selectedlistsize=Varient["data"]
+                if varient["data"]:
+                    selectedlistsize=varient["data"]
                 datav2=st.multiselect("Select size", ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL","others1","others2","others3","others4"],key="v002",default=selectedlistsize)
                 #st.write(datav2[0])
     #           varient["data"]=datav2
                 if "S" in datav2:
                     defaultfors=[]
-                    if Varient["S_img"]:
-                        defaultfors=Varient["S_img"]
+                    if varient["S_img"]:
+                        defaultfors=varient["S_img"]
                     s_image=st.multiselect("Select Images for S", lst,key="v02q",default=defaultfors)
                     varient["S_img"]=s_image
 
                 if "M" in datav2:
                     defaultforM=[]
-                    if Varient["M_img"]:
-                        defaultforM=Varient["M_img"]
+                    if varient["M_img"]:
+                        defaultforM=varient["M_img"]
                     m_image=st.multiselect("Select Images for M", lst,key="v20q3",default=defaultforM)
                     varient["M_img"]=m_image
 
                 if "L" in datav2:
                     defaultforL=[]
-                    if Varient["L_img"]:
-                        defaultforL=Varient["L_img"]
+                    if varient["L_img"]:
+                        defaultforL=varient["L_img"]
                     l_image=st.multiselect("Select Images for L", lst,key="v2q20",default=defaultforL)    
                     varient["L_img"]=l_image
                 if "XL" in datav2:
                     defaultforXL=[]
-                    if Varient["XL_img"]:
-                        defaultforXL=Varient["XL_img"]
+                    if varient["XL_img"]:
+                        defaultforXL=varient["XL_img"]
                     xl_image=st.multiselect("Select Images for XL", lst,key="v2q1",default=defaultforXL)          
                     varient["XL_img"]=xl_image
                 if "XXL" in datav2:
                     defaultforXXL=[]
-                    if Varient["XXL_img"]:
-                        defaultforXXL=Varient["XXL_img"]
+                    if varient["XXL_img"]:
+                        defaultforXXL=varient["XXL_img"]
                     xxl_image=st.multiselect("Select Images for XXL", lst,key="v2q4",default=defaultforXXL)      
                     varient["XXL_img"]=xxl_image
 
                 if "XXXL" in datav2:
                     defaultforXXXL=[]
-                    if Varient["XXXL_img"]:
-                        defaultforXXXL=Varient["XXXL_img"]
+                    if varient["XXXL_img"]:
+                        defaultforXXXL=varient["XXXL_img"]
                     xxxl_image=st.multiselect("Select Images for XXXL", lst,key="v2q5",default=defaultforXXXL)     
                     varient["XXXL_img"]=xxxl_image
                 if "XXXXL" in datav2:
                     defaultforXXXXL=[]
-                    if Varient["XXXXL_img"]:
-                        defaultforXXXXL=Varient["XXXXL_img"]
+                    if varient["XXXXL_img"]:
+                        defaultforXXXXL=varient["XXXXL_img"]
                     xxxxl_image=st.multiselect("Select Images for XXXXL", lst,key="v2q6",default=defaultforXXXXL)     
                     varient["XXXXL_img"]=xxxxl_image
                 if "others1" in datav2:
@@ -255,72 +254,72 @@ if varient!= None:
                     others4={"others4_img":others4_size_image,"others4_name":others4_size_name}
                     varient["others4"]=others4
                     
-    #        st.write((Varient["data"]))
+    #        st.write((varient["data"]))
 
             if typev2 == "color":
                 selectedlistcolor=[]
-                if Varient["data"] and Varient["type"]=="color":
-                    selectedlistcolor=Varient["data"]
+                if varient["data"] and varient["type"]=="color":
+                    selectedlistcolor=varient["data"]
                 datav2=st.multiselect("Select color", ["red", "blue", "green", "yellow", "black", "white","transparent",
                                     "Translucent","Multicolor", "others1","others2","others3","others4"],key="v2",default=selectedlistcolor)
                 varient["data"]=datav2
                 
                 if "red" in datav2:
                     img_red_list=[]
-                    if "red" in Varient["data"]:
-                        img_red_list=Varient["red_img"]
+                    if "red" in varient["data"]:
+                        img_red_list=varient["red_img"]
                     red_image=st.multiselect("Select Images for red", lst,key="v2qas",default=img_red_list)
                     varient["red_img"]=red_image
 
                 if "blue" in datav2:
                     img_blue_list=[]
-                    if "blue" in Varient["data"]:
-                        img_blue_list=Varient["blue_img"]
+                    if "blue" in varient["data"]:
+                        img_blue_list=varient["blue_img"]
                     blue_image=st.multiselect("Select Images for blue", lst,key="v2qasas",default=img_blue_list)
                     varient["blue_img"]=blue_image
 
                 if "green" in datav2:
                     img_green_list=[]
-                    if "green" in Varient["data"]:
-                        img_green_list=Varient["green_img"]
+                    if "green" in varient["data"]:
+                        img_green_list=varient["green_img"]
                     green_image=st.multiselect("Select Images for green", lst,key="vasa2q",default=img_green_list)  
                     varient["green_img"]=green_image  
 
                 if "yellow" in datav2:
                     img_yellow_list=[]
-                    if "yellow" in Varient["data"]:
-                        img_yellow_list=Varient["yellow_img"]
+                    if "yellow" in varient["data"]:
+                        img_yellow_list=varient["yellow_img"]
                     yellow_image=st.multiselect("Select Images for yellow", lst,key="v4as5642q",default=img_yellow_list)
                     varient["yellow_img"]=yellow_image       
 
                 if "black" in datav2:
                     img_black_list=[]
-                    if "black" in Varient["data"]:
-                        img_black_list=Varient["black_img"]                
+                    if "black" in varient["data"]:
+                        img_black_list=varient["black_img"]                
                     black_image=st.multiselect("Select Images for black", lst,key="v2assaq",default=img_black_list)      
                     varient["black_img"]=black_image
                 if "white" in datav2:
                     img_white_list=[]
-                    if "white" in Varient["data"]:
-                        img_white_list=Varient["white_img"]               
+                    if "white" in varient["data"]:
+                        img_white_list=varient["white_img"]               
                     white_image=st.multiselect("Select Images for white", lst,key="vdasdas2q",default=img_white_list)     
                     varient["white_img"]=white_image
                 if "transparent" in datav2:
                     img_transparent_list=[]
-                    if "transparent" in Varient["data"]:
-                        img_transparent_list=Varient["transparent_img"] 
+                    if "transparent" in varient["data"]:
+                        img_transparent_list=varient["transparent_img"] 
                     transparent_image=st.multiselect("Select Images for transparent", lst,key="v2asdasq",default=img_transparent_list)     
                     varient["transparent_img"]=transparent_image
                 if "Translucent" in datav2:
                     img_translucent_list=[]
-                    if "Translucent" in Varient["data"]:
-                        img_translucent_list=Varient["Translucent_img"] 
+                    if "Translucent" in varient["data"]:
+                        img_translucent_list=varient["Translucent_img"] 
                     translucent_image=st.multiselect("Select Images for Translucent", lst,key="v2dasdasdq",default=img_translucent_list)  
                     varient["translucent_img"]=translucent_image
                 if "Multicolor" in datav2:
                     img_Multicolor_list=[]
-                    if "Multicolor" in Varient["data"]:
-                        img_Multicolor_list=Varient["multicolor_img"] 
+                    if "Multicolor" in varient["data"]:
+                        img_Multicolor_list=varient["multicolor_img"] 
                     multicolor_image=st.multiselect("Select Images for Multicolor", lst,key="v2fasfasq",default=img_Multicolor_list)    
                     varient["multicolor_img"]=multicolor_image
                 
