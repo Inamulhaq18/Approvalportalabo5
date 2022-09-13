@@ -255,7 +255,7 @@ if varient!= None:
 
             if typev2 == "color":
                 selectedlistcolor=[]
-                if Varient.has_key("data") and Varient["type"]=="color":
+                if "data" in Varient and Varient["type"]=="color":
                     selectedlistcolor=Varient["data"]
                 datav2=st.multiselect("Select color", ["red", "blue", "green", "yellow", "black", "white","transparent",
                                     "Translucent","Multicolor", "others1","others2","others3","others4"],key="v2",default=selectedlistcolor)
