@@ -46,7 +46,8 @@ productname_en=(((iterrow["Product_Name_en"]).values)[0])
 productname_ar=(((iterrow["Product_Name_ar"]).values)[0])
 productdes_en=(((iterrow["Product_describtion_en"]).values)[0])
 productdes_ar=(((iterrow["Product_describtion_ar"]).values)[0])
-
+tags=(((iterrow["Tags"]).values)[0])
+productdes_en=productdes_en+tags
 variety=(((iterrow["variety"].values[0])))
 tags=(((iterrow["Tags"]).values)[0])
 if st.button("Skip if you see an error"):
