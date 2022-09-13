@@ -441,8 +441,6 @@ if varient!= None:
 st.write(type(varient))
 varient['imgsource']=imgsource
 varient=json.dumps(varient)
-st.write(type(varient))
-st.write(varient)
 
 if st.checkbox("Mark as Approved", value=False):
     status=1
