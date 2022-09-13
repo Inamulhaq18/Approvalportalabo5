@@ -166,7 +166,7 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)          
 
-imgsource=st.multiselect(lst)
+imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 
 if varient!= None:
     with st.expander("Varient", expanded=True):
