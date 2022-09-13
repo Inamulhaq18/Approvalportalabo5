@@ -183,7 +183,7 @@ if varient!= None:
             
             if typev2 == "size":
                 selectedlistsize=[]
-                if Varient["data"]:
+                if varient["data"]:
                     selectedlistsize=Varient["data"]
                 datav2=st.multiselect("Select size", ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL","others1","others2","others3","others4"],key="v002",default=selectedlistsize)
                 #st.write(datav2[0])
