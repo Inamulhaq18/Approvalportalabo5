@@ -432,7 +432,7 @@ if varient!= None:
                     otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
                     varient["otherd5"]=otherd5
                 
-
+st.write(varient)
 varient=json.dumps(varient)
 st.write(varient)
 if st.checkbox("Mark as Approved", value=False):
