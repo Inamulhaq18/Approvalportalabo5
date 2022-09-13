@@ -47,7 +47,7 @@ productname_ar=(((iterrow["Product_Name_ar"]).values)[0])
 productdes_en=(((iterrow["Product_describtion_en"]).values)[0])
 productdes_ar=(((iterrow["Product_describtion_ar"]).values)[0])
 
-variety=(((iterrow["variety"].values[0])))
+varient=(((iterrow["varient"].values[0])))
 tags=(((iterrow["Tags"]).values)[0])
 if st.button("Skip if you see an error"):
     skip(product_id)
@@ -166,7 +166,6 @@ if len(uploaded_files)>0:
 
 
 #################################################################################3333        
-varient=variety
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
 varient["imgsource"]=imgsource
 st.write(varient)
@@ -175,7 +174,7 @@ if varient!= None:
         
         if len (product_imagesR)>0:
             options=["Select","size", "color", "design"]
-            typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v02",index=options.index(variety["type"]))
+            typev2=st.selectbox("Select varient type", ["Select","size", "color", "design"],key="v02",index=options.index(varient["type"]))
             varient={"type":typev2}
             
             if typev2 == "size":
@@ -350,30 +349,30 @@ if varient!= None:
             if typev2 == "design":
                 #checking for design types and appending the list to auto populate 
                 lstdesign=[]
-                st.write(variety.keys())
-                if "otherd1"in variety.keys():
+                st.write(varient.keys())
+                if "otherd1"in varient.keys():
                     lstdesign.append("Design1")
-                    design1img=variety
-                if "otherd2"in variety.keys():
+                    design1img=varient
+                if "otherd2"in varient.keys():
                     lstdesign.append("Design2")
-                if "otherd3"in variety.keys():
+                if "otherd3"in varient.keys():
                     lstdesign.append("Design3")
-                if "otherd4"in variety.keys():
+                if "otherd4"in varient.keys():
                     lstdesign.append("Design4")
-                if "otherd5"in variety.keys():
+                if "otherd5"in varient.keys():
                     lstdesign.append("Design5")
-                # if "1" in variety:
-                #     print(varietyR)
+                # if "1" in varient:
+                #     print(varientR)
                 datav2=st.multiselect("Select Design", ["Design1","Design2","Design3","Design4","Design5"],key="v2",default=lstdesign)
                 
                 if "Design1" in datav2:
                     text=""
                     d1imges=[]   
                     st.write()
-                    if variety["type"]=="design"and variety["otherd1"]:
-                        text=variety["otherd1"]["otherd1_name"]
-                        if variety["otherd1"]["otherd1_img"]:
-                            d1imges=variety["otherd1"]["otherd1_img"]
+                    if varient["type"]=="design"and varient["otherd1"]:
+                        text=varient["otherd1"]["otherd1_name"]
+                        if varient["otherd1"]["otherd1_img"]:
+                            d1imges=varient["otherd1"]["otherd1_img"]
                             st.write(d1imges)
                     other1_design_name=st.text_input("Enter name for Design1 : ",value=text)
                     other1_design_image=st.multiselect("Select Images for Design1",lst,key="vsdfsdf2q",default=d1imges)
@@ -383,12 +382,12 @@ if varient!= None:
                 if "Design2" in datav2:
                     text2=""
                     d2imges=[]
-                    if variety['type']=="design" and variety["otherd2"]:
-                        text2=variety["otherd2"]["otherd2_name"]
-                        d2imges=variety["otherd2"]["otherd2_img"]
+                    if varient['type']=="design" and varient["otherd2"]:
+                        text2=varient["otherd2"]["otherd2_name"]
+                        d2imges=varient["otherd2"]["otherd2_img"]
                     text=""
-                    if  variety['type']=="design":
-                        text=variety["otherd2"]["otherd2_name"]
+                    if  varient['type']=="design":
+                        text=varient["otherd2"]["otherd2_name"]
                     other2_design_name=st.text_input("Enter name for Design2 : ",value=text2)
                     other2_design_image=st.multiselect("Select Images for Design2", lst,key="v2sdfcadzfq",default=d2imges)
                     otherd2={"otherd2_img":other2_design_image,"otherd2_name":other2_design_name}
@@ -397,10 +396,10 @@ if varient!= None:
                 if "Design3" in datav2:
                     text3=""
                     d3imges=[]
-                    if  variety['type']=="design":
-                        if variety["otherd3"]:
-                            text3=variety["otherd3"]["otherd3_name"]
-                            d3imges=variety["otherd3"]["otherd3_img"]
+                    if  varient['type']=="design":
+                        if varient["otherd3"]:
+                            text3=varient["otherd3"]["otherd3_name"]
+                            d3imges=varient["otherd3"]["otherd3_img"]
 
                     other3_design_name=st.text_input("Enter name for Design3 : ",value=text3)
                     other3_design_image=st.multiselect("Select Images for Design3", lst,key="v123122q",default=d3imges)
@@ -410,10 +409,10 @@ if varient!= None:
                 if "Design4" in datav2:
                     text4=""
                     d4imges=[]
-                    if variety["type"]=="design":
-                        if variety["otherd4"]:
-                            text4=variety["otherd4"]["otherd4_name"]
-                            d4imges=variety["otherd4"]["otherd4_img"]
+                    if varient["type"]=="design":
+                        if varient["otherd4"]:
+                            text4=varient["otherd4"]["otherd4_name"]
+                            d4imges=varient["otherd4"]["otherd4_img"]
                     other4_design_name=st.text_input("Enter name for Design4 : ",value=text4)
                     other4_design_image=st.multiselect("Select Images for Design4", lst,key="vwrdvsxc2q",default=d4imges)
                     otherd4={"otherd4_img":other4_design_image,"otherd4_name":other4_design_name}
@@ -422,10 +421,10 @@ if varient!= None:
                 if "Design5" in datav2:
                     text5=""
                     d5imges=[]
-                    if variety["type"]=="design":
-                        if variety["otherd5"]:
-                            text5=variety["otherd5"]["otherd5_name"]
-                            d5imges=variety["otherd5"]["otherd5_img"]
+                    if varient["type"]=="design":
+                        if varient["otherd5"]:
+                            text5=varient["otherd5"]["otherd5_name"]
+                            d5imges=varient["otherd5"]["otherd5_img"]
                     other5_design_name=st.text_input("Enter name for Design5 : ",value=text5)               
                     other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2wrdsvgzxcq",default=d5imges)
                     otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
@@ -446,7 +445,7 @@ if st.button("Update"):
     live_timestamp=str(datetime.datetime.now())
     sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
                         "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
-                        "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
+                        "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"varient"=%s WHERE "Product_id" = %s
                         """
     
     curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
