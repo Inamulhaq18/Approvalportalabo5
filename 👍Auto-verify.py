@@ -152,6 +152,7 @@ def update_raw_image(links,pid):
 uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
 images=[]
 urllist=[]
+imgsource=st.multiselect("Final Images",lst,key="finalimages")
 if len(uploaded_files)>0:
    if st.button("Upload"):
          for uploaded_file in uploaded_files:
@@ -438,7 +439,9 @@ if varient!= None:
                     varient["otherd5"]=otherd5
 
 varient=json.dumps(varient)
+varient["imgsource"]=imgsource
 st.write(varient)
+
 if st.checkbox("Mark as Approved", value=False):
     status=1
 else:
