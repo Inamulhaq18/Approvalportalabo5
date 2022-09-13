@@ -439,7 +439,7 @@ if varient!= None:
                     varient["otherd5"]=otherd5
 
 varient=json.dumps(varient)
-varient["imgsource"]=','.join(imgsource)
+st.write(type(varient))
 st.write(varient)
 
 if st.checkbox("Mark as Approved", value=False):
