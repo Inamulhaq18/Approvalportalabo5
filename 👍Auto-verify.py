@@ -169,7 +169,7 @@ if len(uploaded_files)>0:
 st.write(varient)    
 st.write(("____________________________________________________")) 
 imgsource=st.multiselect("Select Final Images",lst,key="imgsource")
-varient["imgsource"]=imgsource
+#varient["imgsource"]=imgsource
 st.write(varient)
 if varient!= None:
     with st.expander("varient", expanded=True):
