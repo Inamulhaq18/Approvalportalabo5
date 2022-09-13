@@ -184,46 +184,46 @@ if varient!= None:
     #           varient["data"]=datav2
                 if "S" in datav2:
                     defaultfors=[]
-                    if Varient["S_img"]:
+                    if "S_img" in Varient:
                         defaultfors=Varient["S_img"]
                     s_image=st.multiselect("Select Images for S", lst,key="v02q",default=defaultfors)
                     varient["S_img"]=s_image
 
                 if "M" in datav2:
                     defaultforM=[]
-                    if Varient["M_img"]:
+                    if "M_img" in Varient:
                         defaultforM=Varient["M_img"]
                     m_image=st.multiselect("Select Images for M", lst,key="v20q3",default=defaultforM)
                     varient["M_img"]=m_image
 
                 if "L" in datav2:
                     defaultforL=[]
-                    if Varient["L_img"]:
+                    if "L_img" in Varient:
                         defaultforL=Varient["L_img"]
                     l_image=st.multiselect("Select Images for L", lst,key="v2q20",default=defaultforL)    
                     varient["L_img"]=l_image
                 if "XL" in datav2:
                     defaultforXL=[]
-                    if Varient["XL_img"]:
+                    if "XL_img" in Varient:
                         defaultforXL=Varient["XL_img"]
                     xl_image=st.multiselect("Select Images for XL", lst,key="v2q1",default=defaultforXL)          
                     varient["XL_img"]=xl_image
                 if "XXL" in datav2:
                     defaultforXXL=[]
-                    if Varient["XXL_img"]:
+                    if "XXL_img" in Varient:
                         defaultforXXL=Varient["XXL_img"]
                     xxl_image=st.multiselect("Select Images for XXL", lst,key="v2q4",default=defaultforXXL)      
                     varient["XXL_img"]=xxl_image
 
                 if "XXXL" in datav2:
                     defaultforXXXL=[]
-                    if Varient["XXXL_img"]:
+                    if "XXXL_img" in Varient:
                         defaultforXXXL=Varient["XXXL_img"]
                     xxxl_image=st.multiselect("Select Images for XXXL", lst,key="v2q5",default=defaultforXXXL)     
                     varient["XXXL_img"]=xxxl_image
                 if "XXXXL" in datav2:
                     defaultforXXXXL=[]
-                    if Varient["XXXXL_img"]:
+                    if "XXXXL_img" in Varient:
                         defaultforXXXXL=Varient["XXXXL_img"]
                     xxxxl_image=st.multiselect("Select Images for XXXXL", lst,key="v2q6",default=defaultforXXXXL)     
                     varient["XXXXL_img"]=xxxxl_image
