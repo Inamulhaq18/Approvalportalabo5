@@ -291,7 +291,8 @@ if varient!= None:
 
                 if "black" in datav2:
                     img_black_list=[]
-                    if "black" in Varient["data"]:
+                    if "data" in Varient:
+                      if "black" in Varient["data"]:
                         img_black_list=Varient["black_img"]                
                     black_image=st.multiselect("Select Images for black", lst,key="v2assaq",default=img_black_list)      
                     varient["black_img"]=black_image
