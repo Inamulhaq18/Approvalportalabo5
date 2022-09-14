@@ -446,7 +446,7 @@ if st.checkbox("Mark as Approved", value=False):
     status=1
 else:
     status=2
-print(status)
+st.write(status)
 
 if st.button("Update"):
     
