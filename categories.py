@@ -124,4 +124,3 @@ categories1={"OCCASIONS & HOLIDAYS":["Decoration",
 "Others"
 ]}
 
-print(list(categories1.keys()))
