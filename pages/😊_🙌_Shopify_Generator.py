@@ -175,6 +175,7 @@ st.header("😊 🙌")
 st.header("Yay ! '{}'  Products Ready to be uploaded ".format(dfshopify.shape[0]))
 st.header("")
 st.write(dfshopify)
+
 def convert_df(df):
    return df.to_csv().encode('utf-8')
 
@@ -185,6 +186,13 @@ st.download_button(
    "file.csv",
    "text/csv",
 )
+
+if st.button("Update"):
+   with engine.connect() as con:
+
+   con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
+   
+ 
 pids=list(pfa['Product_id'])
 pids = ''.join(str(pids))
 pids=pids.replace("[","")
