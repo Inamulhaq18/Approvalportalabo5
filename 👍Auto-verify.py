@@ -459,8 +459,7 @@ if st.button("Update"):
     print(status)
     curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
     conn.commit()
-    sql_select_query = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
-    print(status)
+
     curr.execute(sql_select_query, (status,product_id))
     conn.commit()
 
