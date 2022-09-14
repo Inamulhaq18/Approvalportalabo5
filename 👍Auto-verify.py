@@ -86,8 +86,7 @@ with col2:
             subcatslist=categories1[cat]
             subcatindex=subcatslist.index(subcat)
             categorysub_ = st.selectbox(
-            'Select a SubCategory',
-            catslist,index=subcatindex)
+            'Select a SubCategory',subcatslist,index=subcatindex)
     else:
             categorysub_ = st.selectbox('Select a sub category',
             categories1[category_])
