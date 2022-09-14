@@ -36,6 +36,7 @@ dat = pd.read_sql_query(sql,conn)
 pfa=dat.copy()
 st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>684]
+st.write(pfa)
 pfa=pfa[pfa["Product_approval_status"]==0]
 pfa=pfa.sort_values(by="Product_id")
 iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
@@ -458,9 +459,6 @@ if st.button("Update"):
                         """
     print(status)
     curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
-    conn.commit()
-
-    curr.execute(sql_select_query, (status,product_id))
     conn.commit()
 
     
