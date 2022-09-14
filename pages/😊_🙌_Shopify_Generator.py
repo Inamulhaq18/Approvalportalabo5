@@ -187,18 +187,17 @@ st.download_button(
    "text/csv",
 )
 
-if st.button("Update"):
-   with engine.connect() as con:
-
-   con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
-   
- 
 pids=list(pfa['Product_id'])
 pids = ''.join(str(pids))
 pids=pids.replace("[","")
 pids=pids.replace("]","")
 pids=pids.replace("'","")
 
-with engine.connect() as con:
+if st.button("Update"):
+   with engine.connect() as con:
 
    con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
+   
+ 
+
+
