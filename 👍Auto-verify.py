@@ -441,12 +441,12 @@ if varient!= None:
 st.write(type(varient))
 varient['imgsource']=imgsource
 varient=json.dumps(varient)
-
+status=0
 if st.checkbox("Mark as Approved", value=False):
     status=1
 else:
     status=2
-
+print(status)
 
 if st.button("Update"):
     
