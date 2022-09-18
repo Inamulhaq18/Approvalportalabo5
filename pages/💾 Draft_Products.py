@@ -49,7 +49,7 @@ if pfa.shape[0] !=0:
         pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
 
-        st.write(itterrow.shape[0])
+        st.write(itterrow)
         product_id=(((iterrow["Product_id"]).values)[0])
         st.write("Product ID : "+str(product_id))
         productname_en=(((iterrow["Product_Name_en"]).values)[0])
