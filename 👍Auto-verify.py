@@ -173,8 +173,12 @@ if len(uploaded_files)>0:
          update_raw_image(links,product_id)        
 
 def upload_img(img):
-        name=save_uploadedfile(img)
-        s3.Bucket('abo5').upload_file(Filename=name, Key=name)
+        name=str(datetime.datetime.now())
+        name=name.replace(".","")
+        name=name.replace(":","")
+        name=name.replace(" ","")
+        name=name+"."+png
+        s3.Bucket('abo5').upload_file(Filename=img, Key=name)
         urllist.append(url+name)
         links = ", ".join(urllist)
         links = product_rimage+", "+links
@@ -201,8 +205,8 @@ with st.expander('rotate images'):
                         if direction=="Right":
                             im=im.rotate(-90)
                         st.image(im)
-                        upload_img(im)
-                
+                        im.save('temp.png')
+                        upload_img('temp.png')
                 
                 
 
