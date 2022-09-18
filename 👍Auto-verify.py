@@ -42,7 +42,8 @@ pfa=pfa[pfa["Product_id"]>687]
 
 
 pfa=pfa[pfa["Product_approval_status"]==0]
-pfa.shape[0]
+if pfa.shape[0] ==0:
+        "No New Product Available to approve 😔"
 
 pfa=pfa.sort_values(by="Product_id")
 iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
