@@ -155,16 +155,42 @@ for index, row in pfa.iterrows():
 
   #imageposition
   imageposition=list(range(1,rowlen+1))
-
   
+  #image varient url
+  imagevurl=[]
+  if rowlen==1:
+  dummyentries(option1val,rowlen)
+  if rowlen > 1:
+     for option in row["variety"]['data']:
+      if (option+"_img") in row["variety"]:
+       dataa=row["variety"][option+"_img"]
+       urlsdata=[]
+       for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
+          urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
+          urlsdata.append(urlsdataa)
+       imagevurl.append(urlsdataa)
+  
+  
+  #option1 value
+  option1val=[]
+  if rowlen==1:
+    dummyentries(option1val,rowlen)
+  if rowlen>1:
+    option1val=row["variety"]['data']
+
+
+  print(option1val)
+  print(imagevurl)
   # for h in handler:
   #   a={'Handle': h}
   #   df1=df1.append(a, ignore_index = True)
-  dftemp=pd.DataFrame({'Handle':handler,'Title':Title,'Body (HTML)':Body,'Vendor':vendor_,'Custom Product Type':CPT,'Tags':tags,'Option1 Name':option1,'Option1 Value':option1_val,'Published':Published,'Variant Price':price,'Image Position':imageposition,'Image Src':image_link})
+  dftemp=pd.DataFrame({'Handle':handler,'Title':Title,'Body (HTML)':Body,'Vendor':vendor_,'Custom Product Type':CPT,'Tags':tags,'Option1 Name':option1,'Option1 Value':option1val,'Published':Published,'Variant Price':price,'Image Position':imageposition,'Image Src':image_link,'Variant Image':imagevurl})
   dfshopify=dfshopify.append(dftemp,ignore_index=True)
   dftemp=pd.DataFrame({'Handle':handler})
+  
 
-  print(image_link)
+  print(option1val)
+  print(imagevurl)
   print(imageposition)
   print(option1)
   print(tags)
