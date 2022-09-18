@@ -143,6 +143,7 @@ Varient = (iterrow["variety"].values[0])
 varient=Varient
 
 
+
 #Upload new photos 
 def update_raw_image(links,pid):
     sql_select_query = """UPDATE master_product_table SET "Product_image_R_url" = %s WHERE "Product_id" = %s"""
@@ -168,7 +169,8 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)          
 
-
+st.expander('rotate images'):
+       rotatethese = st.multiselect('Select images that are to be rotated',lst)
 
 if varient!= None:
     with st.expander("Varient", expanded=True):
