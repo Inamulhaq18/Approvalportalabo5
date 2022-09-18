@@ -42,7 +42,7 @@ pfa=pfa[pfa["Product_id"]>687]
 
 
 pfa=pfa[pfa["Product_approval_status"]==0]
-st.write(iterrow)
+pfa.shape[0]
 
 pfa=pfa.sort_values(by="Product_id")
 iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
