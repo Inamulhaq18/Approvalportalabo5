@@ -169,7 +169,7 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)          
 
-st.expander('rotate images'):
+with st.expander('rotate images'):
        rotatethese = st.multiselect('Select images that are to be rotated',lst)
 
 if varient!= None:
