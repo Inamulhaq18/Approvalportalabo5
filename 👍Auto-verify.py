@@ -172,6 +172,8 @@ if len(uploaded_files)>0:
 with st.expander('rotate images'):
        rotatethese = st.multiselect('Select images that are to be rotated',lst)
        direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
+       if st.button("Process"):
+        st.write("HEllo")
 
 if varient!= None:
     with st.expander("Varient", expanded=True):
