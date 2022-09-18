@@ -196,9 +196,9 @@ with st.expander('rotate images'):
                 urllib.request.urlretrieve(image_to_process, "temp.png")
                 img = PILImage.open("temp.png")
                 with PILImage.open("temp.png") as im:
-                        if direction=="Left"
+                        if direction=="Left":
                             im=im.rotate(90)
-                        if direction=="Right"
+                        if direction=="Right":
                             im=im.rotate(-90)
                         st.image(im)
                         upload_img(im)
