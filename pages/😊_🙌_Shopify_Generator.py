@@ -150,7 +150,7 @@ for index, row in pfa.iterrows():
           R_img=row["Product_image_R_url"].split(",")
           image_link.append(R_img[int(imgs-1)])
   except KeyError as error:
-    image_link=row["Product_image_R_url"]
+    image_link.append(row["Product_image_R_url"])
 
 
   #imageposition
