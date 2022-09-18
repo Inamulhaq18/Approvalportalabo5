@@ -10,6 +10,9 @@ from io import BytesIO
 import json
 from categories import *
 from abo5s3 import *
+import urllib.request
+
+
 
 def skip(product_id):
         sql_select_queryskip = """UPDATE master_product_table SET "Product_approval_status"= %s WHERE "Product_id" = %s"""
@@ -167,7 +170,7 @@ if len(uploaded_files)>0:
             urllist.append(url+name)
          links = ", ".join(urllist)
          links = product_rimage+", "+links
-         update_raw_image(links,product_id)          
+         update_raw_image(links,product_id)        
 
 with st.expander('rotate images'):
        rotatethese = st.multiselect('Select images that are to be rotated',lst)
@@ -181,8 +184,11 @@ with st.expander('rotate images'):
                 Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
                 image_to_process=Product_image_P_url[item-1]
                 image_to_process=image_to_process.strip()
-                st.write(image_to_process)
-                st.image(image_to_process)
+                urllib.request.urlretrieve(image_to_process, "temp.png")
+                img = Image.open("temp.png")
+                with Image.open("temp.png") as im:
+                im.rotate(45).show()
+                
                 
                 
 
