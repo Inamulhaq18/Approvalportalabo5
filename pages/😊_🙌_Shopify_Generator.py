@@ -159,7 +159,7 @@ for index, row in pfa.iterrows():
   #image varient url
   imagevurl=[]
   if rowlen==1:
-     dummyentries("",rowlen)
+     imagevurl=dummyentries("",rowlen)
   if rowlen > 1:
      for option in row["variety"]['data']:
       if (option+"_img") in row["variety"]:
