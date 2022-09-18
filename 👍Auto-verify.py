@@ -185,8 +185,8 @@ with st.expander('rotate images'):
                 image_to_process=Product_image_P_url[item-1]
                 image_to_process=image_to_process.strip()
                 urllib.request.urlretrieve(image_to_process, "temp.png")
-                img = Image.open("temp.png")
-                with Image.open("temp.png") as im:
+                img = PILImage.open("temp.png")
+                with PILImage.open("temp.png") as im:
                         im.rotate(45).show()
                         st.write(im)
                 
