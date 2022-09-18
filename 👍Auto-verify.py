@@ -172,6 +172,15 @@ if len(uploaded_files)>0:
          links = product_rimage+", "+links
          update_raw_image(links,product_id)        
 
+def upload_img(img):
+        name=save_uploadedfile(img)
+        s3.Bucket('abo5').upload_file(Filename=name, Key=name)
+        urllist.append(url+name)
+        links = ", ".join(urllist)
+        links = product_rimage+", "+links
+        update_raw_image(links,product_id)
+        
+        
 with st.expander('rotate images'):
        rotatethese = st.multiselect('Select images that are to be rotated',lst)
        direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
@@ -187,8 +196,12 @@ with st.expander('rotate images'):
                 urllib.request.urlretrieve(image_to_process, "temp.png")
                 img = PILImage.open("temp.png")
                 with PILImage.open("temp.png") as im:
-                        im=im.rotate(-45)
+                        if direction=="Left"
+                            im=im.rotate(90)
+                        if direction=="Right"
+                            im=im.rotate(-90)
                         st.image(im)
+                        upload_img(im)
                 
                 
                 
