@@ -177,10 +177,11 @@ with st.expander('rotate images'):
              if "R" in str(item):
                 item=item.replace("R","")
                 item=int(item)
-                st.write(Product_image_P_url)
-                Product_image_P_url=Product_image_P_url.split(",")
-                image_to_process=Product_image_P_url[item]
+                st.write(item)
+                Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
+                image_to_process=Product_image_P_url[item-1]
                 st.image("yoyo",image_to_process)
+                
                 
 
 if varient!= None:
