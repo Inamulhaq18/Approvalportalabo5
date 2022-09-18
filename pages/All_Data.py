@@ -11,4 +11,4 @@ curr=conn.cursor()
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
 
-AgGrid(dat)
+AgGrid(dat,theme:'light')
