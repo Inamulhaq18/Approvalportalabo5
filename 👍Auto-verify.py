@@ -187,7 +187,8 @@ with st.expander('rotate images'):
                 urllib.request.urlretrieve(image_to_process, "temp.png")
                 img = Image.open("temp.png")
                 with Image.open("temp.png") as im:
-                im.rotate(45).show()
+                        im.rotate(45).show()
+                        st.write(im)
                 
                 
                 
