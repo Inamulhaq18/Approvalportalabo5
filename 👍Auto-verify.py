@@ -187,7 +187,7 @@ with st.expander('rotate images'):
                 urllib.request.urlretrieve(image_to_process, "temp.png")
                 img = PILImage.open("temp.png")
                 with PILImage.open("temp.png") as im:
-                        im=im.rotate(45)
+                        im=im.rotate(-45)
                         st.image(im)
                 
                 
