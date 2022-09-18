@@ -177,7 +177,7 @@ def upload_img(img):
         name=name.replace(".","")
         name=name.replace(":","")
         name=name.replace(" ","")
-        name=name+"."+png
+        name=name+"."+"png"
         s3.Bucket('abo5').upload_file(Filename=img, Key=name)
         urllist.append(url+name)
         links = ", ".join(urllist)
