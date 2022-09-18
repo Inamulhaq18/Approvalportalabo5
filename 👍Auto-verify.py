@@ -180,6 +180,7 @@ with st.expander('rotate images'):
                 st.write(item)
                 Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
                 image_to_process=Product_image_P_url[item-1]
+                st.write("image_to_process")
                 st.image("yoyo",image_to_process)
                 
                 
