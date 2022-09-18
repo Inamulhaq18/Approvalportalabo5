@@ -188,7 +188,7 @@ with st.expander('rotate images'):
                 img = PILImage.open("temp.png")
                 with PILImage.open("temp.png") as im:
                         im.rotate(45).show()
-                        st.write(im)
+                        st.image(im)
                 
                 
                 
