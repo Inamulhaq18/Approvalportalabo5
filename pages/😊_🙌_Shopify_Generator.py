@@ -172,11 +172,12 @@ for index, row in pfa.iterrows():
   
   
   #option1 value
-  option1val=[]
+  option1val=[""]
   if rowlen==1:
     dummyentries(option1val,rowlen)
   if rowlen>1:
     option1val=row["variety"]['data']
+  dummyentries(option1val,rowlen)
 
 
   print(option1val)
