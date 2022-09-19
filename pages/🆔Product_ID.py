@@ -38,9 +38,10 @@ st.title("Product Approval Portal - Auto 👍")
 index=st.number_input('Index',step=1,value=0)
 
 if index!=0:
+        st.write(index)
         pfa=pfa[pfa["Product_id"]==index]
-        pfa=pfa[pfa["Product_approval_status"]==0]
-        pfa=pfa.sort_values(by="Product_id")
+        #pfa=pfa[pfa["Product_approval_status"]==0]
+        #pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
         st.write(iterrow)
         product_id=(((iterrow["Product_id"]).values)[0])
