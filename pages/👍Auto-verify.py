@@ -194,6 +194,7 @@ if pfa.shape[0] !=0:
                rotatethese = st.multiselect('Select images that are to be rotated',lst)
                direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
                if st.button("Process"):
+                with st.spinner("Processing your images 😊"):
                  for item in rotatethese:
                      if "R" in str(item):
                         item=item.replace("R","")
