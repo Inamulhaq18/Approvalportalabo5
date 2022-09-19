@@ -163,6 +163,7 @@ if pfa.shape[0] !=0:
         images=[]
         urllist=[]
         imgsource=st.multiselect("Final Images",lst,key="finalimages")
+        st.write(imgsource)
         if len(uploaded_files)>0:
            if st.button("Upload"):
                  for uploaded_file in uploaded_files:
