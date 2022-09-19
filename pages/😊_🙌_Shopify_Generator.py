@@ -147,7 +147,7 @@ for index, row in pfa.iterrows():
   try:
       st.write("before try:  ",image_link)
       templist=[]
-      if "imgsource" in row["variety"]["imgsource"]:
+      if "imgsource" in row["variety"]:
          for item in row["variety"]["imgsource"]:
             templist.append(geturlfor(item,row))
          strinng="'".join(templist)
