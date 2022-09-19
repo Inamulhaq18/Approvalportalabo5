@@ -210,7 +210,6 @@ if pfa.shape[0] !=0:
                                     im=im.rotate(90)
                                 if direction=="Right":
                                     im=im.rotate(-90)
-                                st.image(im)
                                 im.save('temp.png')
                                 upload_img('temp.png')
                      else:
