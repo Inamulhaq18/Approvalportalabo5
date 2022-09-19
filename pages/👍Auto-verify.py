@@ -47,7 +47,8 @@ if pfa.shape[0] ==0:
 if pfa.shape[0] !=0:
         pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
-
+        if st.button("Skip if you see an error"):
+            skip(product_id)
         st.write(itterrow.shape[0])
         product_id=(((iterrow["Product_id"]).values)[0])
         st.write("Product ID : "+str(product_id))
@@ -59,9 +60,6 @@ if pfa.shape[0] !=0:
         productdes_en=productdes_en+tags
         variety=(((iterrow["variety"].values[0])))
         tags=(((iterrow["Tags"]).values)[0])
-
-        if st.button("Skip if you see an error"):
-            skip(product_id)
 
 
         col1, col2 = st.columns(2)
