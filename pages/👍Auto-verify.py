@@ -162,7 +162,6 @@ if pfa.shape[0] !=0:
         uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
         images=[]
         urllist=[]
-        st.write(imgsource)
         if len(uploaded_files)>0:
            if st.button("Upload"):
                  for uploaded_file in uploaded_files:
