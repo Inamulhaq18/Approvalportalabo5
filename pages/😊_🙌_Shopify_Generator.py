@@ -15,8 +15,6 @@ engine = create_engine("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153
 Session=sessionmaker(bind=engine)
 session=Session
 Base=declarative_base()
-
-
 shopify=pd.read_csv("shopifytemp.csv")
 shopifycolumns=list(shopify.columns)
 conn=psycopg2.connect("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153df6a42054b71e9be00dda420f40bbbf791b2@ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/dd8a5bspvhrk8c") 
@@ -153,8 +151,10 @@ for index, row in pfa.iterrows():
          strinng="'".join(templist)
          image_link.append(strinng)
          image_link=dummyentries(image_link,rowlen)
+         if image_link==[]:
+            image_link=[""]
+            dummyentries(image_link,rowlen)
          st.write("try:  ",image_link)
-      
       
    
   except KeyError as error:
