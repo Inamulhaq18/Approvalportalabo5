@@ -109,7 +109,7 @@ for index, row in pfa.iterrows():
 
   #Option1 Name
   if row["variety"]["type"]=="Select":
-    option1=""
+    option1=[""]
   else:
     option1=[row["variety"]["type"]]
   dummyentries(option1,rowlen)
@@ -227,5 +227,3 @@ if st.button("Update"):
       con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
    
  
-
-
