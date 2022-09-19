@@ -200,7 +200,7 @@ for index, row in pfa.iterrows():
   st.write("image_link:  ",image_link)
   st.write("imageV:",imagevurl)
   st.write("yoyo: ",option1)
-  st.write(len(option1),len(option1val),len(Published),len(price),len(imageposition),len(image_link),len(CPT),len(tags),len(option1),len(Published),len(imageposition),len(image_link),len(Body),len(Title),len(handler),len(Published),len(price),len(imageposition))
+  st.write(len(option1),len(option1val),len(Published),len(price),len(imageposition),len(image_link),len(CPT),len(tags),len(option1),len(Published),len(imageposition),len(image_link),len(Body),len(Title),len(handler),len(Published),len(price),len(imageposition),len(vendor_),len(option1val),len(image_link),len(imagevurl))
   dftemp=pd.DataFrame({'Handle':handler,'Title':Title,'Body (HTML)':Body,'Vendor':vendor_,'Custom Product Type':CPT,'Tags':tags,'Option1 Name':option1,'Option1 Value':option1val,'Published':Published,'Variant Price':price,'Image Position':imageposition,'Image Src':image_link,'Variant Image':imagevurl})
   dfshopify=dfshopify.append(dftemp,ignore_index=True)
   dftemp=pd.DataFrame({'Handle':handler})
