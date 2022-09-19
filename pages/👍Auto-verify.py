@@ -194,39 +194,41 @@ if pfa.shape[0] !=0:
                rotatethese = st.multiselect('Select images that are to be rotated',lst)
                direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
                if st.button("Process"):
-                with st.spinner("Processing your images 😊"):
-                 for item in rotatethese:
-                     if "R" in str(item):
-                        item=item.replace("R","")
-                        item=int(item)
-                        st.write(item)
-                        Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
-                        image_to_process=Product_image_P_url[item-1]
-                        image_to_process=image_to_process.strip()
-                        urllib.request.urlretrieve(image_to_process, "temp.png")
-                        img = PILImage.open("temp.png")
-                        with PILImage.open("temp.png") as im:
-                                if direction=="Left":
-                                    im=im.rotate(90)
-                                if direction=="Right":
-                                    im=im.rotate(-90)
-                                im.save('temp.png')
-                                upload_img('temp.png')
-                     else:
-                        Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
-                        image_to_process=Product_image_P_url[item-1]
-                        image_to_process=image_to_process.strip()
-                        urllib.request.urlretrieve(image_to_process, "temp.png")
-                        img = PILImage.open("temp.png")
-                        with PILImage.open("temp.png") as im:
-                                if direction=="Left":
-                                    im=im.rotate(90)
-                                if direction=="Right":
-                                    im=im.rotate(-90)
-                                st.image(im)
-                                im.save('temp.png')
-                                upload_img('temp.png')
-                        
+                if rotatethese!="":
+                        with st.spinner("Processing your images 😊"):
+                         for item in rotatethese:
+                             if "R" in str(item):
+                                item=item.replace("R","")
+                                item=int(item)
+                                st.write(item)
+                                Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
+                                image_to_process=Product_image_P_url[item-1]
+                                image_to_process=image_to_process.strip()
+                                urllib.request.urlretrieve(image_to_process, "temp.png")
+                                img = PILImage.open("temp.png")
+                                with PILImage.open("temp.png") as im:
+                                        if direction=="Left":
+                                            im=im.rotate(90)
+                                        if direction=="Right":
+                                            im=im.rotate(-90)
+                                        im.save('temp.png')
+                                        upload_img('temp.png')
+                             else:
+                                Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
+                                image_to_process=Product_image_P_url[item-1]
+                                image_to_process=image_to_process.strip()
+                                urllib.request.urlretrieve(image_to_process, "temp.png")
+                                img = PILImage.open("temp.png")
+                                with PILImage.open("temp.png") as im:
+                                        if direction=="Left":
+                                            im=im.rotate(90)
+                                        if direction=="Right":
+                                            im=im.rotate(-90)
+                                        st.image(im)
+                                        im.save('temp.png')
+                                        upload_img('temp.png')
+                else:
+                        st.write("Please select images to process")
 
 
 
