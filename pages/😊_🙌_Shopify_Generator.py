@@ -145,6 +145,7 @@ for index, row in pfa.iterrows():
   imgsrc=[row["variety"]]
   image_link=[]
   try:
+      st.write("before try:  ",image_link)
       templist=[]
       if "imgsource" in row["variety"]["imgsource"]:
          for item in row["variety"]["imgsource"]:
