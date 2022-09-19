@@ -51,7 +51,7 @@ if pfa.shape[0] !=0:
         st.write(product_id)
         if st.button("Skip if you see an error"):
             skip(product_id)
-        st.write(itterrow.shape[0])
+        st.write(iterrow.shape[0])
         st.write("Product ID : "+str(product_id))
         productname_en=(((iterrow["Product_Name_en"]).values)[0])
         productname_ar=(((iterrow["Product_Name_ar"]).values)[0])
