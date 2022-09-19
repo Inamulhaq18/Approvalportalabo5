@@ -512,7 +512,7 @@ if pfa.shape[0] !=0:
         st.write(status)
 
         if st.button("Update"):
-          if imgsource!="":
+          if len(imgsource)!=0:
                     print("Updating")
                     live_timestamp=str(datetime.datetime.now())
                     sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
@@ -526,7 +526,7 @@ if pfa.shape[0] !=0:
 
                     st.success("Updated")
                     st.experimental_rerun()
-          if imgsource=="" :
+          if len(imgsource)==0 :
                 st.write("Upload Final Image 🥴")
 
 
