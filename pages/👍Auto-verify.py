@@ -162,7 +162,6 @@ if pfa.shape[0] !=0:
         uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
         images=[]
         urllist=[]
-        imgsource=st.multiselect("Final Images",lst,key="finalimages")
         st.write(imgsource)
         if len(uploaded_files)>0:
            if st.button("Upload"):
@@ -232,7 +231,7 @@ if pfa.shape[0] !=0:
                         st.write("Please select images to process")
 
 
-
+        imgsource=st.multiselect("Final Images",lst,key="finalimages")
         if varient!= None:
             with st.expander("Varient", expanded=True):
                 if len (product_imagesR)>0:
