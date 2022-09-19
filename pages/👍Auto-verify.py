@@ -190,7 +190,7 @@ if pfa.shape[0] !=0:
                 update_raw_image(links,product_id)
 
 
-        with st.expander('rotate images'):
+        with st.expander('rotate images',expanded=False):
                rotatethese = st.multiselect('Select images that are to be rotated',lst)
                direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
                if st.button("Process"):
