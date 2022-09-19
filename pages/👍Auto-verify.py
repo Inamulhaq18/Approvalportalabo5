@@ -48,7 +48,7 @@ if pfa.shape[0] !=0:
         pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
         product_id=(((iterrow["Product_id"]).values)[0])
-
+        st.write(product_id)
         if st.button("Skip if you see an error"):
             skip(product_id)
         st.write(itterrow.shape[0])
