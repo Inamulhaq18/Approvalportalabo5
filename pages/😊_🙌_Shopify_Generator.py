@@ -157,7 +157,9 @@ for index, row in pfa.iterrows():
       
    
   except KeyError as error:
-    image_link.append(row["Product_image_R_url"])
+    image_link=[""]
+      dummyentries(image_link,rowlen)
+      st.write("except":image_link)
 
 
   #imageposition
