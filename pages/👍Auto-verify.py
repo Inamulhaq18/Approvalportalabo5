@@ -227,7 +227,7 @@ if pfa.shape[0] !=0:
                                         st.image(im)
                                         im.save('temp.png')
                                         upload_img('temp.png')
-                else:
+                if rotatethese=="":
                         st.write("Please select images to process")
 
 
