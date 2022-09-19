@@ -145,23 +145,16 @@ for index, row in pfa.iterrows():
   imgsrc=[row["variety"]]
   image_link=[]
   try:
-    imgsel=[]
-    data_=(row["variety"]["data"])
-    for adata in data_:
-      imgsel.append(row["variety"][adata+"_img"])
-    for a in imgsel:
-      for imgs in a:
-        if "R" in str(imgs):
-          imgs=imgs.replace("R","")
-          p_img=row["Product_image_P_url"].replace("{","")
-          p_img=row["Product_image_P_url"].replace("}","")
-          p_img=row["Product_image_P_url"].split(",")
-          image_link.append(p_img[int(imgs)+1])
-        else:
-          R_img=row["Product_image_R_url"].replace("{","")
-          R_img=row["Product_image_R_url"].replace("}","")
-          R_img=row["Product_image_R_url"].split(",")
-          image_link.append(R_img[int(imgs-1)])
+      templist=[]
+      if "imgsource" in row["variety"]["imgsource"]:
+         for item in row["variety"]["imgsource"]:
+            templist.append(geturlfor(item,row))
+         strinng="'".join(templist)
+         image_link.append(strinng)
+         image_link=dummyentries(image_link,rowlen)
+      
+      
+   
   except KeyError as error:
     image_link.append(row["Product_image_R_url"])
 
