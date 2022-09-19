@@ -511,20 +511,22 @@ if pfa.shape[0] !=0:
         st.write(status)
 
         if st.button("Update"):
+           if imgsource!="":
+                    print("Updating")
+                    live_timestamp=str(datetime.datetime.now())
+                    sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
+                                        "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
+                                        "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
+                                        """
+                    print(status)
+                    curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
+                    conn.commit()
 
-            print("Updating")
-            live_timestamp=str(datetime.datetime.now())
-            sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
-                                "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
-                                "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
-                                """
-            print(status)
-            curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
-            conn.commit()
 
-
-            st.success("Updated")
-            st.experimental_rerun()
+                    st.success("Updated")
+                    st.experimental_rerun()
+          if imgsource=="":
+                st.write("Upload Final Image 🥴")
 
 
 
