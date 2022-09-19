@@ -192,7 +192,7 @@ if pfa.shape[0] !=0:
 
         with st.expander('rotate images',expanded=False):
                rotatethese = st.multiselect('Select images that are to be rotated',lst)
-               direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
+               direction = st.selectbox("Select the direction to rotate",["Right","Left"])
                if st.button("Process"):
                 if rotatethese!="":
                         with st.spinner("Processing your images 😊"):
