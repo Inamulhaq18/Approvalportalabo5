@@ -47,10 +47,11 @@ if pfa.shape[0] ==0:
 if pfa.shape[0] !=0:
         pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
+        product_id=(((iterrow["Product_id"]).values)[0])
+
         if st.button("Skip if you see an error"):
             skip(product_id)
         st.write(itterrow.shape[0])
-        product_id=(((iterrow["Product_id"]).values)[0])
         st.write("Product ID : "+str(product_id))
         productname_en=(((iterrow["Product_Name_en"]).values)[0])
         productname_ar=(((iterrow["Product_Name_ar"]).values)[0])
