@@ -63,7 +63,20 @@ rowdata={}
 
 dfshopify=pd.DataFrame(columns=shopifycolumns)
 
-
+def geturlfor(imgs,row):
+          if "R" in str(imgs):
+            imgs=imgs.replace("R","")
+            p_img=row["Product_image_P_url"].replace("{","")
+            p_img=row["Product_image_P_url"].replace("}","")
+            p_img=row["Product_image_P_url"].split(",")
+            image_link=p_img[int(imgs)+1]
+            return(image_link)
+          else:
+            R_img=row["Product_image_R_url"].replace("{","")
+            R_img=row["Product_image_R_url"].replace("}","")
+            R_img=row["Product_image_R_url"].split(",")
+            image_link=R_img[int(imgs-1)]
+            return(image_link)
 
 #The main program
 for index, row in pfa.iterrows():
@@ -109,7 +122,7 @@ for index, row in pfa.iterrows():
 
   #Option1 Name
   if row["variety"]["type"]=="Select":
-    option1=""
+    option1=[""]
   else:
     option1=[row["variety"]["type"]]
   dummyentries(option1,rowlen)
@@ -132,32 +145,29 @@ for index, row in pfa.iterrows():
   imgsrc=[row["variety"]]
   image_link=[]
   try:
-    imgsel=[]
-    data_=(row["variety"]["data"])
-    for adata in data_:
-      imgsel.append(row["variety"][adata+"_img"])
-    for a in imgsel:
-      for imgs in a:
-        if "R" in str(imgs):
-          imgs=imgs.replace("R","")
-          p_img=row["Product_image_P_url"].replace("{","")
-          p_img=row["Product_image_P_url"].replace("}","")
-          p_img=row["Product_image_P_url"].split(",")
-          image_link.append(p_img[int(imgs)+1])
-        else:
-          R_img=row["Product_image_R_url"].replace("{","")
-          R_img=row["Product_image_R_url"].replace("}","")
-          R_img=row["Product_image_R_url"].split(",")
-          image_link.append(R_img[int(imgs-1)])
+      st.write("before try:  ",image_link)
+      templist=[]
+      if "imgsource" in row["variety"]:
+         for item in row["variety"]["imgsource"]:
+            templist.append(geturlfor(item,row))
+         strinng="'".join(templist)
+         image_link.append(strinng)
+         image_link=dummyentries(image_link,rowlen)
+         st.write("try:  ",image_link)
+      
+      
+   
   except KeyError as error:
-    image_link.append(row["Product_image_R_url"])
+    image_link=[""]
+    dummyentries(image_link,rowlen)
+    st.write("except  :",image_link)
 
 
   #imageposition
   imageposition=list(range(1,rowlen+1))
   
   #image varient url
-  imagevurl=[]
+  imagevurl=[""]
   if rowlen==1:
      imagevurl=dummyentries(imagevurl,rowlen)
   if rowlen > 1:
@@ -172,11 +182,12 @@ for index, row in pfa.iterrows():
   
   
   #option1 value
-  option1val=[]
+  option1val=[""]
   if rowlen==1:
     dummyentries(option1val,rowlen)
   if rowlen>1:
     option1val=row["variety"]['data']
+
 
 
   print(option1val)
@@ -185,7 +196,11 @@ for index, row in pfa.iterrows():
   #   a={'Handle': h}
   #   df1=df1.append(a, ignore_index = True)
   st.write(type(image_link))
-  st.write(len(option1),len(option1val),len(Published),len(price),len(imageposition),len(image_link),len(imagevurl))
+  st.write(rowlen)
+  st.write("image_link:  ",image_link)
+  st.write("imageV:",imagevurl)
+  st.write("yoyo: ",option1)
+  st.write(len(option1),len(option1val),len(Published),len(price),len(imageposition),len(image_link),len(CPT),len(tags),len(option1),len(Published),len(imageposition),len(image_link),len(image_link),len(Title),len(handler))
   dftemp=pd.DataFrame({'Handle':handler,'Title':Title,'Body (HTML)':Body,'Vendor':vendor_,'Custom Product Type':CPT,'Tags':tags,'Option1 Name':option1,'Option1 Value':option1val,'Published':Published,'Variant Price':price,'Image Position':imageposition,'Image Src':image_link,'Variant Image':imagevurl})
   dfshopify=dfshopify.append(dftemp,ignore_index=True)
   dftemp=pd.DataFrame({'Handle':handler})
@@ -225,4 +240,3 @@ if st.button("Update"):
    with engine.connect() as con:
       con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
    
- 
