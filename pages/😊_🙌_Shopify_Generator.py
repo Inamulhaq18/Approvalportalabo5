@@ -69,7 +69,7 @@ def geturlfor(imgs,row):
             p_img=row["Product_image_P_url"].replace("{","")
             p_img=row["Product_image_P_url"].replace("}","")
             p_img=row["Product_image_P_url"].split(",")
-            image_link=p_img[int(imgs)+1]
+            image_link=p_img[int(imgs)-1]
             return(image_link)
           else:
             R_img=row["Product_image_R_url"].replace("{","")
