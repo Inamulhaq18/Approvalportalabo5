@@ -218,6 +218,18 @@ for index, row in pfa.iterrows():
 st.header("😊 🙌")
 st.header("Yay ! '{}'  Products Ready to be uploaded ".format(dfshopify.shape[0]))
 st.header("")
+dfshopify['Status']="Active"
+dfshopify['Gift Card']="FALSE"
+dfshopify['Variant Taxable']='TRUE'
+dfshopify['Variant Fulfillment Service']='manual'
+dfshopify['Variant Inventory Policy']='deny'
+dfshopify['Variant Inventory Tracker']='shopify'
+dfshopify['Variant Inventory Qty']='50'
+dfshopify['Published']='TRUE'
+dfshopify['Published']='TRUE'
+dfshopify['Published']='TRUE'
+dfshopify['Published']='TRUE'
+
 st.write(dfshopify)
 
 def convert_df(df):
