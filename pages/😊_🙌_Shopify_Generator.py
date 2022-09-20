@@ -233,7 +233,7 @@ dfshopify['Published']='TRUE'
 st.write(dfshopify)
 
 def convert_df(df):
-   return df.to_csv().encode('utf-8')
+   return df.to_csv(index=False).encode('utf-8')
 
 dfshopify=convert_df(dfshopify)
 st.download_button(
