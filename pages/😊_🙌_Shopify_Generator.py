@@ -149,9 +149,8 @@ for index, row in pfa.iterrows():
       if "imgsource" in row["variety"]:
          for item in row["variety"]["imgsource"]:
             templist.append(geturlfor(item,row))
-         strinng="'".join(templist)
+         strinng=",".join(templist)
          image_link.append(strinng)
-         image_link=','.join(image_link)
          image_link=dummyentries(image_link,rowlen)
       
       
