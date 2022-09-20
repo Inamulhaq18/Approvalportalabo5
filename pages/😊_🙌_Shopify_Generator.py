@@ -145,22 +145,20 @@ for index, row in pfa.iterrows():
   imgsrc=[row["variety"]]
   image_link=[]
   try:
-      st.write("before try:  ",image_link)
       templist=[]
       if "imgsource" in row["variety"]:
          for item in row["variety"]["imgsource"]:
             templist.append(geturlfor(item,row))
          strinng="'".join(templist)
          image_link.append(strinng)
+         image_link=','.join(image_link)
          image_link=dummyentries(image_link,rowlen)
-         st.write("try:  ",image_link)
       
       
    
   except KeyError as error:
     image_link=[""]
     dummyentries(image_link,rowlen)
-    st.write("except  :",image_link)
 
 
   #imageposition
@@ -179,6 +177,7 @@ for index, row in pfa.iterrows():
        for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
           urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
           urlsdata.append(urlsdataa)
+       urlsdata=', '.join(urlsdata)
        imagevurl.append(urlsdata)
   
   
@@ -220,9 +219,7 @@ dfshopify['Variant Inventory Policy']='deny'
 dfshopify['Variant Inventory Tracker']='shopify'
 dfshopify['Variant Inventory Qty']='50'
 dfshopify['Published']='TRUE'
-dfshopify['Published']='TRUE'
-dfshopify['Published']='TRUE'
-dfshopify['Published']='TRUE'
+
 
 st.write(dfshopify)
 
