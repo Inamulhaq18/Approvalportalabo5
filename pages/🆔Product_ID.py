@@ -199,7 +199,7 @@ if index!=0:
                 if st.button("Process"):
                     if rotatethese!="":
                             with st.spinner("Processing your images 😊"):
-                            for item in rotatethese:
+                             for item in rotatethese:
                                 if "R" in str(item):
                                     item=item.replace("R","")
                                     item=int(item)
