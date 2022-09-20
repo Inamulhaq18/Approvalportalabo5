@@ -41,7 +41,7 @@ st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>687]
 
 
-pfa=pfa[pfa["Product_approval_status"]==2]
+pfa=pfa[pfa["Product_approval_status"]==0]
 if pfa.shape[0] ==0:
         "No New Product Available to approve 😔"
 if pfa.shape[0] !=0:
