@@ -331,7 +331,7 @@ if index!=0:
                             if "red" in datav2:
                                 img_red_list=[]
                                 if "data" in Varient:
-                                if "red" in Varient["data"]:
+                                 if "red" in Varient["data"]:
                                     img_red_list=Varient["red_img"]
                                 red_image=st.multiselect("Select Images for red", lst,key="v2qas",default=img_red_list)
                                 varient["red_img"]=red_image
