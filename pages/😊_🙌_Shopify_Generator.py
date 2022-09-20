@@ -241,5 +241,5 @@ pids=pids.replace("'","")
 
 if st.button("Update"):
    with engine.connect() as con:
-      con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
+      con.execute('UPDATE master_product_table SET "shopify_status" = 0 WHERE "Product_id" IN ({})'.format(pids))
    
