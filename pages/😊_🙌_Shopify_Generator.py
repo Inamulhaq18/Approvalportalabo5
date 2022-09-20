@@ -167,9 +167,10 @@ for index, row in pfa.iterrows():
   imageposition=list(range(1,rowlen+1))
   
   #image varient url
-  imagevurl=[""]
+  imagevurl=[]
   if rowlen==1:
-     imagevurl=dummyentries(imagevurl,rowlen)
+     #imagevurl=dummyentries(imagevurl,rowlen)
+      imagevurl=[""]
   if rowlen > 1:
      for option in row["variety"]['data']:
       if (option+"_img") in row["variety"]:
@@ -178,7 +179,7 @@ for index, row in pfa.iterrows():
        for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
           urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
           urlsdata.append(urlsdataa)
-       imagevurl.append(urlsdataa)
+       imagevurl.append(urlsdata)
   
   
   #option1 value
