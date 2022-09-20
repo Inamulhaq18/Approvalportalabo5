@@ -38,7 +38,7 @@ def imageprocessapi(links):
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
 pfa=dat.copy()
-st.title("Product Approval Portal - Auto 👍")
+st.title("Product Approval Portal - Product ID")
 index=st.number_input('Index',step=1,value=0)
 
 if index!=0:
