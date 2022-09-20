@@ -167,7 +167,7 @@ if index!=0:
             images=[]
             urllist=[]
             if len(uploaded_files)>0:
-            if st.button("Upload"):
+              if st.button("Upload"):
                     for uploaded_file in uploaded_files:
                         bytes_data = uploaded_file.read()
                         name=save_uploadedfile(uploaded_file)
