@@ -41,16 +41,17 @@ st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>687]
 
 
-pfa=pfa[pfa["Product_approval_status"]==2]
+pfa=pfa[pfa["Product_approval_status"]==0]
 if pfa.shape[0] ==0:
         "No New Product Available to approve 😔"
 if pfa.shape[0] !=0:
-        st.write(pfa.shape[0])
         pfa=pfa.sort_values(by="Product_id")
         iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
-
-        st.write(iterrow["Product_id"].values[0])
         product_id=(((iterrow["Product_id"]).values)[0])
+        st.write(product_id)
+        if st.button("Skip if you see an error"):
+            skip(product_id)
+        st.write(iterrow.shape[0])
         st.write("Product ID : "+str(product_id))
         productname_en=(((iterrow["Product_Name_en"]).values)[0])
         productname_ar=(((iterrow["Product_Name_ar"]).values)[0])
@@ -60,9 +61,6 @@ if pfa.shape[0] !=0:
         productdes_en=productdes_en+tags
         variety=(((iterrow["variety"].values[0])))
         tags=(((iterrow["Tags"]).values)[0])
-
-        if st.button("Skip if you see an error"):
-            skip(product_id)
 
 
         col1, col2 = st.columns(2)
@@ -164,7 +162,6 @@ if pfa.shape[0] !=0:
         uploaded_files=st.file_uploader("Upload a file", type=["png", "jpg", "jpeg"], accept_multiple_files=True) 
         images=[]
         urllist=[]
-        imgsource=st.multiselect("Final Images",lst,key="finalimages")
         if len(uploaded_files)>0:
            if st.button("Upload"):
                  for uploaded_file in uploaded_files:
@@ -192,31 +189,48 @@ if pfa.shape[0] !=0:
                 update_raw_image(links,product_id)
 
 
-        with st.expander('rotate images'):
+        with st.expander('rotate images',expanded=False):
                rotatethese = st.multiselect('Select images that are to be rotated',lst)
-               direction = st.selectbox("Select the direction to rotate",["Left", "Right"])
+               direction = st.selectbox("Select the direction to rotate",["Right","Left"])
                if st.button("Process"):
-                 for item in lst:
-                     if "R" in str(item):
-                        item=item.replace("R","")
-                        item=int(item)
-                        st.write(item)
-                        Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
-                        image_to_process=Product_image_P_url[item-1]
-                        image_to_process=image_to_process.strip()
-                        urllib.request.urlretrieve(image_to_process, "temp.png")
-                        img = PILImage.open("temp.png")
-                        with PILImage.open("temp.png") as im:
-                                if direction=="Left":
-                                    im=im.rotate(90)
-                                if direction=="Right":
-                                    im=im.rotate(-90)
-                                st.image(im)
-                                im.save('temp.png')
-                                upload_img('temp.png')
+                if rotatethese!="":
+                        with st.spinner("Processing your images 😊"):
+                         for item in rotatethese:
+                             if "R" in str(item):
+                                item=item.replace("R","")
+                                item=int(item)
+                                st.write(item)
+                                Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
+                                image_to_process=Product_image_P_url[item-1]
+                                image_to_process=image_to_process.strip()
+                                urllib.request.urlretrieve(image_to_process, "temp.png")
+                                img = PILImage.open("temp.png")
+                                with PILImage.open("temp.png") as im:
+                                        if direction=="Left":
+                                            im=im.rotate(90)
+                                        if direction=="Right":
+                                            im=im.rotate(-90)
+                                        im.save('temp.png')
+                                        upload_img('temp.png')
+                             else:
+                                Product_image_P_url=iterrow["Product_image_P_url"].values[0].split(",")
+                                image_to_process=Product_image_P_url[item-1]
+                                image_to_process=image_to_process.strip()
+                                urllib.request.urlretrieve(image_to_process, "temp.png")
+                                img = PILImage.open("temp.png")
+                                with PILImage.open("temp.png") as im:
+                                        if direction=="Left":
+                                            im=im.rotate(90)
+                                        if direction=="Right":
+                                            im=im.rotate(-90)
+                                        st.image(im)
+                                        im.save('temp.png')
+                                        upload_img('temp.png')
+                if rotatethese=="":
+                        st.write("Please select images to process")
 
 
-
+        imgsource=st.multiselect("Final Images",lst,key="finalimages")
         if varient!= None:
             with st.expander("Varient", expanded=True):
                 if len (product_imagesR)>0:
@@ -485,7 +499,7 @@ if pfa.shape[0] !=0:
                             other5_design_image=st.multiselect("Select Images for Design5", lst,key="v2wrdsvgzxcq",default=d5imges)
                             otherd5={"otherd5_img":other5_design_image,"otherd5_name":other5_design_name}
                             varient["otherd5"]=otherd5
-        st.write(type(varient))
+
         varient['imgsource']=imgsource
         varient=json.dumps(varient)
         status=0
@@ -496,20 +510,22 @@ if pfa.shape[0] !=0:
         st.write(status)
 
         if st.button("Update"):
+          if len(imgsource)!=0:
+                    print("Updating")
+                    live_timestamp=str(datetime.datetime.now())
+                    sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
+                                        "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
+                                        "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
+                                        """
+                    print(status)
+                    curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
+                    conn.commit()
 
-            print("Updating")
-            live_timestamp=str(datetime.datetime.now())
-            sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
-                                "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
-                                "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
-                                """
-            print(status)
-            curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
-            conn.commit()
 
-
-            st.success("Updated")
-            st.experimental_rerun()
+                    st.success("Updated")
+                    st.experimental_rerun()
+          if len(imgsource)==0 :
+                st.write("Upload Final Image 🥴")
 
 
 
