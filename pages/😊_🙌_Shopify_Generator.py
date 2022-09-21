@@ -154,10 +154,10 @@ for index, row in pfa.iterrows():
       if "imgsource" in row["variety"]:
          for item in row["variety"]["imgsource"]:
             templist.append(geturlfor(item,row))
-         strinng=",".join(templist)
-         image_link.append(strinng)
-         image_link=dummyentries(image_link,rowlen)
-      
+         #strinng=",".join(templist)
+         #image_link.append(strinng)
+         #image_link=dummyentries(image_link,rowlen)
+         image_link=templist
       
    
   except KeyError as error:
