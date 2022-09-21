@@ -47,12 +47,12 @@ def getrowlen(row):
       rowlen=len((row["variety"]['data'])
    except KeyError as error:
       rowlen=1
-   try:
-       imgsourcelen=len((row["imgsource"])
-   except:
+   if "imgsource" in row["variety"]:
+       imgsourcelen=len((row["imgsource"])      
+       rowlen=max(rowlen,imgsourcelen)
+   else:
        rowlen=rowlen
-   
-   rowlen=max(rowlen,imgsourcelen)                 
+                 
    return(rowlen)
 
 def handler(row):
