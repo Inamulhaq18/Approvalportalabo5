@@ -504,23 +504,14 @@ if pfa.shape[0] !=0:
         varient=json.dumps(varient)
         status=0
         if st.checkbox("Mark as Approved", value=False):
-            status=1
+            status=0
         else:
-            status=2
+            status=0
         st.write(status)
 
         if st.button("Update"):
           if len(imgsource)!=0:
-                    print("Updating")
-                    live_timestamp=str(datetime.datetime.now())
-                    sql_select_query = """UPDATE master_product_table SET "Product_Name_en" = %s,
-                                        "Product_describtion_en" = %s, "Product_Category" = %s, "Product_subcategory" = %s, 
-                                        "Product_price" = %s, "Product_approval_status"= %s, "Product_live_TimeStamp"=%s,"variety"=%s WHERE "Product_id" = %s
-                                        """
-                    print(status)
-                    curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
-                    conn.commit()
-
+                    time.sleep(2)
 
                     st.success("Updated")
                     st.experimental_rerun()
