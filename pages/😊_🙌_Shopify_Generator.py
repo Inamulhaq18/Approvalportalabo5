@@ -44,9 +44,11 @@ pfa=pfa.dropna(subset=['variety'])
 
 def getrowlen(row):
    try:
-      rowlen=len((row["variety"]['data']))
+      rowlen=len((row["variety"]['data'])
    except KeyError as error:
       rowlen=1
+   imgsourcelen=len((row["imgsource"])
+                    
    return(rowlen)
 
 def handler(row):
