@@ -489,9 +489,9 @@ if pfa.shape[0] !=0:
         varient=json.dumps(varient)
         status=0
         if st.checkbox("Mark as Approved", value=False):
-            status=1
+            status=0
         else:
-            status=2
+            status=0
         st.write(status)
 
         if st.button("Update"):
