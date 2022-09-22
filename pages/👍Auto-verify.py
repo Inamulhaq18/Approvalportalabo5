@@ -31,7 +31,7 @@ def imageprocessapi(links):
     url="https://abo5imageapi.herokuapp.com/processBG?rurl="
     url=url+links
     response = session.get(url)
-    print(response.content)
+    st.write(response.content)
 
 #loading the data
 sql = "SELECT * FROM master_product_table"
