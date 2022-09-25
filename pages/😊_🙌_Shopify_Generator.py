@@ -42,8 +42,7 @@ list(shopifycolumnss.columns)
 
 pfa=pfa.dropna(subset=['variety'])
 
-def getrowlen(row):
-   
+def getrowlen(row):   
    if "data" in row["variety"] :
       rowlen=len((row["variety"]['data'])
    if "imgsource" in row["variety"] :
