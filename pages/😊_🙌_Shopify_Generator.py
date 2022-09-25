@@ -43,14 +43,10 @@ list(shopifycolumnss.columns)
 pfa=pfa.dropna(subset=['variety'])
 
 def getrowlen(row):   
-   if "data" in (row["variety"]):
-      rowlen=len((row["variety"]['data'])
-   elif ("imgsource" in (row["variety"])):
-      imgsourcelen=len((row["imgsource"])      
-      rowlen=max(rowlen,imgsourcelen)
+   if "data" in row['variety']:
+      rowlen=len(row['variety']['data'])
    else:
-      rowlen=1                 
-   return(rowlen)
+      rowlen=1
 
 def handler(row):
   handler.append(row['Product_Name_en'].replace("","_"))
