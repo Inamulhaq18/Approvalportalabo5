@@ -48,7 +48,7 @@ def getrowlen(row):
 #    if ("imgsource" in (row["variety"])):
 #       imgsourcelen=len((row["imgsource"])      
 #       rowlen=max(rowlen,imgsourcelen)
-    else:
+   else:
       rowlen=1                 
    return(rowlen)
 
