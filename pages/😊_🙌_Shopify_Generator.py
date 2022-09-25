@@ -45,13 +45,11 @@ pfa=pfa.dropna(subset=['variety'])
 def getrowlen(row):
    try:
       rowlen=len((row["variety"]['data'])
+      if "imgsource" in row["variety"]:
+          imgsourcelen=len((row["imgsource"])      
+          rowlen=max(rowlen,imgsourcelen)
    except KeyError as error:
       rowlen=1
-   if "imgsource" in row["variety"]:
-       imgsourcelen=len((row["imgsource"])      
-       rowlen=max(rowlen,imgsourcelen)
-   else:
-       rowlen=rowlen
                  
    return(rowlen)
 
@@ -182,8 +180,10 @@ for index, row in pfa.iterrows():
        for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
           urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
           urlsdata.append(urlsdataa)
+       urlsdata=urlsdata[0]
        urlsdata=', '.join(urlsdata)
        imagevurl.append(urlsdata)
+       
   
   
   #option1 value
