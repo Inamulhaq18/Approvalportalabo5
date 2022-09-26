@@ -42,14 +42,12 @@ list(shopifycolumnss.columns)
 
 pfa=pfa.dropna(subset=['variety'])
 
-def getrowlen(row):   
-   rowlen=1
-   if "data" in row['variety']:
-      rowlen=len(row['variety']['data'])
-   if "imgsource" in row ['variety']:
-      imgsourcelen=len(row['variety']['imgsource'])
-      rowlen=max(rowlen,imgsourcelen)
-      
+def getrowlen(row):
+   try:
+      rowlen=len((row["variety"]['data']))
+   except KeyError as error:
+      rowlen=1
+   return(rowlen)
 
 def handler(row):
   handler.append(row['Product_Name_en'].replace("","_"))
@@ -82,8 +80,8 @@ def geturlfor(imgs,row):
 
 #The main program
 for index, row in pfa.iterrows():
-  st.write(row)
   rowlen=getrowlen(row)
+  
   #handler
   handler=[]
   for i in range(1,rowlen+1):
@@ -147,19 +145,22 @@ for index, row in pfa.iterrows():
   imgsrc=[row["variety"]]
   image_link=[]
   try:
+      st.write("before try:  ",image_link)
       templist=[]
       if "imgsource" in row["variety"]:
          for item in row["variety"]["imgsource"]:
             templist.append(geturlfor(item,row))
-         #strinng=",".join(templist)
-         #image_link.append(strinng)
-         #image_link=dummyentries(image_link,rowlen)
-         image_link=templist
+         strinng="'".join(templist)
+         image_link.append(strinng)
+         image_link=dummyentries(image_link,rowlen)
+         st.write("try:  ",image_link)
+      
       
    
   except KeyError as error:
     image_link=[""]
     dummyentries(image_link,rowlen)
+    st.write("except  :",image_link)
 
 
   #imageposition
@@ -178,10 +179,7 @@ for index, row in pfa.iterrows():
        for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
           urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
           urlsdata.append(urlsdataa)
-       urlsdata=urlsdata[0]
-       urlsdata=', '.join(urlsdata)
        imagevurl.append(urlsdata)
-       
   
   
   #option1 value
@@ -222,7 +220,9 @@ dfshopify['Variant Inventory Policy']='deny'
 dfshopify['Variant Inventory Tracker']='shopify'
 dfshopify['Variant Inventory Qty']='50'
 dfshopify['Published']='TRUE'
-
+dfshopify['Published']='TRUE'
+dfshopify['Published']='TRUE'
+dfshopify['Published']='TRUE'
 
 st.write(dfshopify)
 
@@ -245,5 +245,4 @@ pids=pids.replace("'","")
 
 if st.button("Update"):
    with engine.connect() as con:
-      con.execute('UPDATE master_product_table SET "shopify_status" = 0 WHERE "Product_id" IN ({})'.format(pids))
-   
+      con.execute('UPDATE master_product_table SET "shopify_status" = 1 WHERE "Product_id" IN ({})'.format(pids))
