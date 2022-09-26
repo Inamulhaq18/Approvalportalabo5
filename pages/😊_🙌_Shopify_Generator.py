@@ -152,7 +152,7 @@ for index, row in pfa.iterrows():
             templist.append(geturlfor(item,row))
          strinng="'".join(templist)
          image_link.append(strinng)
-         image_link=image_link[0]
+         image_link=[image_link[0]]
          image_link=dummyentries(image_link,rowlen)
          st.write("try:  ",image_link)
       
@@ -180,7 +180,7 @@ for index, row in pfa.iterrows():
        for i in dataa:#loop through the list(blue_img:[1,r1,2,21])
           urlsdataa=geturlfor(i,row)#this needs to return url for a 1,2,3,R1
           urlsdata.append(urlsdataa)
-          urlsdata=urlsdata[0]
+          urlsdata=[urlsdata[0]]
        imagevurl.append(urlsdata)
   
   
