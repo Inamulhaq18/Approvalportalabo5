@@ -82,7 +82,7 @@ def geturlfor(imgs,row):
 
 #The main program
 for index, row in pfa.iterrows():
-  print(row)
+  st.write(row)
   rowlen=getrowlen(row)
   #handler
   handler=[]
