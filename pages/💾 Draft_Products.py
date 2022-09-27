@@ -19,6 +19,7 @@ def skip(product_id):
         status=str("8")
         curr.execute(sql_select_queryskip, (status,str(product_id),))
         conn.commit()
+        conn.close()
 #initialize the database connection
 
 conn=psycopg2.connect("postgresql://hkmuctkbhmlhsr:59563300aab6c650f8bbc9cc4153df6a42054b71e9be00dda420f40bbbf791b2@ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/dd8a5bspvhrk8c") 
@@ -37,6 +38,7 @@ def imageprocessapi(links):
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
 pfa=dat.copy()
+conn.close()
 st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>687]
 
@@ -520,6 +522,7 @@ if pfa.shape[0] !=0:
                     print(status)
                     curr.execute(sql_select_query, (productname_en_,productdes_en_,category_,categorysub_, price_,status,live_timestamp,varient,product_id,))
                     conn.commit()
+                    conn.close()
 
 
                     st.success("Updated")
