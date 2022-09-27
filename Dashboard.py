@@ -21,7 +21,7 @@ st.title("Dashboard")
 
 pfa=pfa[pfa["Product_live_status"]==0]
 pfa.reset_index(inplace=True)
-
+conn.close()
 
 
 col1, col2, col3 = st.columns(3)
