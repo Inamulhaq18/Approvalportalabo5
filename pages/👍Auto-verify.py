@@ -50,7 +50,7 @@ if pfa.shape[0] ==0:
         "No New Product Available to approve 😔"
 if pfa.shape[0] !=0:
         pfa=pfa.sort_values(by="Product_id")
-        iterrow=(pfa.iloc[[-1]])#taking 535th element of the filtered row
+        iterrow=(pfa.iloc[[0]])#taking 535th element of the filtered row
         product_id=(((iterrow["Product_id"]).values)[0])
         st.write(product_id)
         if st.button("Skip if you see an error"):
