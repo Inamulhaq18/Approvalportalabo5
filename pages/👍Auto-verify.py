@@ -39,7 +39,7 @@ def imageprocessapi(links):
 #loading the data
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
-conn.close ()
+conn.close()
 pfa=dat.copy()
 st.title("Product Approval Portal - Auto 👍")
 pfa=pfa[pfa["Product_id"]>687]
