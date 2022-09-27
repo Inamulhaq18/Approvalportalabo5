@@ -25,6 +25,7 @@ curr=conn.cursor()
 sql = "SELECT * FROM master_product_table"
 dat = pd.read_sql_query(sql,conn)
 pfa=dat
+conn.close()
 pfa=pfa[pfa["Product_id"]>650]
 pfa=pfa[pfa["Product_approval_status"]==1]
 pfa=pfa[pfa["shopify_status"]==0]
